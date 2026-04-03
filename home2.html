@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotaryPro — Premium Notary Experience</title>
+  <meta name="description" content="Experience premium mobile notary services with interactive design. Loan signing, legal documents, 24/7 service." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Home 2 Exclusive Styles ── */
+    .h2-hero {
+      min-height: calc(100vh - var(--header-h));
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1e4d8c 100%);
+      position: relative; overflow: hidden; padding: 80px 0;
+    }
+    .h2-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1400&q=60') center/cover no-repeat;
+      opacity: 0.08;
+    }
+    /* Animated gradient orbs */
+    .h2-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .h2-orb-1 { width: 500px; height: 500px; background: rgba(201,168,76,0.15); top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
+    .h2-orb-2 { width: 350px; height: 350px; background: rgba(42,82,152,0.3); bottom: -80px; left: -60px; animation: float 6s ease-in-out infinite reverse; }
+    .h2-hero-content { position: relative; z-index: 1; text-align: center; max-width: 760px; margin: 0 auto; }
+    .h2-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(var(--accent-rgb),0.18); color: var(--accent-light);
+      border: 1px solid rgba(var(--accent-rgb),0.3);
+      padding: 6px 16px; border-radius: var(--radius-full);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .h2-hero-badge svg { width: 13px; height: 13px; }
+    .h2-hero-title { font-size: clamp(2.2rem,5.5vw,4rem); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
+    .h2-hero-title span { color: var(--accent-light); position: relative; }
+    .h2-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .h2-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .h2-hero-clients { display: flex; align-items: center; justify-content: center; gap: 12px; color: rgba(255,255,255,0.65); font-size: 0.82rem; }
+    .client-avatars { display: flex; }
+    .client-avatars img { width: 34px; height: 34px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); margin-left: -8px; }
+    .client-avatars img:first-child { margin-left: 0; }
+
+    /* Tilt Service Cards */
+    .tilt-card { transition: transform 0.15s ease, box-shadow 0.15s ease; transform-style: preserve-3d; will-change: transform; }
+    .tilt-card:hover { box-shadow: 0 25px 60px rgba(0,0,0,0.18); }
+    [data-theme="dark"] .tilt-card:hover { box-shadow: 0 25px 60px rgba(0,0,0,0.5); }
+
+    /* H2 Interactive Cards */
+    .h2-service-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 34px 28px; position: relative; overflow: hidden; cursor: pointer;
+      transition: var(--transition);
+    }
+    .h2-service-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(var(--primary-rgb),0.04) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .h2-service-card:hover::after { opacity: 1; }
+    .h2-service-num { font-size: 3.5rem; font-weight: 900; color: var(--border); line-height: 1; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+    .h2-service-icon { width: 50px; height: 50px; background: rgba(var(--primary-rgb),0.08); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 14px; transition: var(--transition); }
+    [data-theme="dark"] .h2-service-icon { background: rgba(var(--accent-rgb),0.1); color: var(--accent-light); }
+    .h2-service-card:hover .h2-service-icon { background: var(--primary); color: white; transform: rotate(-5deg) scale(1.1); }
+    .h2-service-icon svg { width: 22px; height: 22px; }
+    .h2-service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .h2-service-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* Process */
+    .process-step-h2 {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px 24px; text-align: left; transition: var(--transition); position: relative;
+    }
+    .process-step-h2:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .step-badge {
+      width: 48px; height: 48px; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 900; color: white; margin-bottom: 14px;
+    }
+    .step-arrow {
+      position: absolute; top: 50%; right: -18px; transform: translateY(-50%);
+      width: 36px; height: 36px; background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--primary); z-index: 1;
+    }
+    .step-arrow svg { width: 14px; height: 14px; }
+
+    /* Case Showcase */
+    .showcase-card {
+      border-radius: var(--radius-lg); overflow: hidden; position: relative;
+      background: var(--bg-card); border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .showcase-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .showcase-card img { width: 100%; height: 220px; object-fit: cover; }
+    .showcase-content { padding: 20px 22px; }
+    .showcase-tag {
+      display: inline-block; margin-bottom: 8px;
+      background: rgba(var(--accent-rgb),0.1); color: var(--accent-dark);
+      font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: var(--radius-full); text-transform: uppercase;
+    }
+    [data-theme="dark"] .showcase-tag { background: rgba(var(--accent-rgb),0.12); color: var(--accent-light); }
+    .showcase-content h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 6px; }
+    .showcase-content p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Newsletter */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      padding: 80px 24px; text-align: center;
+    }
+    .newsletter-section h2 { font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 800; color: white; margin-bottom: 10px; }
+    .newsletter-section p { color: rgba(255,255,255,0.72); margin-bottom: 28px; font-size: 1rem; }
+    .newsletter-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 13px 18px; border-radius: var(--radius-sm); border: none; font-size: 0.9rem; outline: none; background: rgba(255,255,255,0.12); color: white; border: 1.5px solid rgba(255,255,255,0.2); }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+    .newsletter-form input:focus { border-color: var(--accent); background: rgba(255,255,255,0.15); }
+    @media (max-width: 480px) { .newsletter-form { flex-direction: column; } .newsletter-form input,.newsletter-form button { width: 100%; } }
+
+    /* Advanced Benefits */
+    .adv-benefit { display: flex; align-items: flex-start; gap: 16px; padding: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); }
+    .adv-benefit:hover { transform: translateX(6px); box-shadow: var(--shadow-sm); border-color: rgba(var(--primary-rgb),0.2); }
+    [dir="rtl"] .adv-benefit:hover { transform: translateX(-6px); }
+    .adv-benefit-icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; }
+    .adv-benefit-icon svg { width: 20px; height: 20px; }
+    .adv-benefit h4 { font-size: 0.93rem; font-weight: 700; margin-bottom: 4px; }
+    .adv-benefit p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Care Plan Teaser */
+    .care-plan-teaser {
+      background: var(--bg-card); border: 2px solid var(--accent); border-radius: var(--radius-lg);
+      padding: 36px; display: flex; align-items: center; gap: 32px;
+    }
+    .care-plan-teaser .teaser-icon { width: 80px; height: 80px; background: rgba(var(--accent-rgb),0.1); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0; animation: pulse 2.5s infinite; }
+    .care-plan-teaser svg { width: 36px; height: 36px; }
+    .care-plan-teaser h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+    .care-plan-teaser p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+    @media (max-width: 600px) { .care-plan-teaser { flex-direction: column; } }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER (same as all pages) -->
+<header class="site-header" id="site-header">
+  <nav class="nav-container">
+    <div class="nav-logo">
+      <a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html" class="active">Home 2</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="care-plans.html">Care Plans</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-ctas">
+        <a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a>
+      </div>
+      <div class="nav-toggles">
+        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+        <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL"><i data-lucide="languages"></i></button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+      <button class="drawer-close" id="drawer-close">✕</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li>
+      <li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+      <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li>
+      <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+      <li><a href="about.html"><i data-lucide="user"></i> About</a></li>
+      <li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    </ul>
+    <div class="drawer-toggles">
+      <button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button>
+      <button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button>
+    </div>
+    <div class="drawer-cta">
+      <a href="contact.html" class="btn btn-primary btn-full">Book Notary</a>
+      <a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- PREMIUM HERO -->
+<section class="h2-hero">
+  <div class="h2-orb h2-orb-1"></div>
+  <div class="h2-orb h2-orb-2"></div>
+  <div class="container">
+    <div class="h2-hero-content">
+      <div class="h2-hero-badge animate-fadeup"><i data-lucide="sparkles"></i> Premium Notary Experience</div>
+      <h1 class="h2-hero-title animate-fadeup" style="animation-delay:0.1s">
+        Legal Documents.<br><span>Signed. Sealed.</span><br>Delivered.
+      </h1>
+      <p class="h2-hero-sub animate-fadeup" style="animation-delay:0.2s">
+        Experience the future of notary services — mobile, professional, and available 24/7. We come to you anywhere, anytime.
+      </p>
+      <div class="h2-hero-ctas animate-fadeup" style="animation-delay:0.3s">
+        <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg"><i data-lucide="clock"></i> Schedule Appointment</a>
+      </div>
+      <div class="h2-hero-clients animate-fadein" style="animation-delay:0.5s">
+        <div class="client-avatars">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80" alt="" />
+        </div>
+        <span>Trusted by 500+ clients &amp; growing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE SERVICE CARDS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="grid-3x3"></i> Services</div>
+      <h2>Everything You <span>Need</span></h2>
+      <p>Hover over the cards to experience our interactive service showcase.</p>
+    </div>
+    <div class="services-grid">
+      <div class="h2-service-card tilt-card reveal delay-1">
+        <div class="h2-service-num">01</div>
+        <div class="h2-service-icon"><i data-lucide="file-signature"></i></div>
+        <h3>Loan Signing</h3>
+        <p>Complete real estate closings, refinances, and mortgage signings with a certified LSA.</p>
+      </div>
+      <div class="h2-service-card tilt-card reveal delay-2">
+        <div class="h2-service-num">02</div>
+        <div class="h2-service-icon"><i data-lucide="car"></i></div>
+        <h3>Mobile Notary</h3>
+        <p>We travel anywhere within 50 miles — your home, office, hospital, or anywhere convenient.</p>
+      </div>
+      <div class="h2-service-card tilt-card reveal delay-3">
+        <div class="h2-service-num">03</div>
+        <div class="h2-service-icon"><i data-lucide="home"></i></div>
+        <h3>Real Estate Docs</h3>
+        <p>Deeds, title transfers, and all real estate transaction documents — handled perfectly.</p>
+      </div>
+      <div class="h2-service-card tilt-card reveal delay-4">
+        <div class="h2-service-num">04</div>
+        <div class="h2-service-icon"><i data-lucide="scroll"></i></div>
+        <h3>Legal Affidavits</h3>
+        <p>Sworn statements, power of attorney, wills, trusts — all notarized professionally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="arrow-right-circle"></i> How It Works</div>
+      <h2>Simple <span>3-Step</span> Process</h2>
+      <p>Getting your documents notarized has never been easier or faster.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;">
+      <div class="process-step-h2 reveal delay-1" style="position:relative;">
+        <div class="step-badge">1</div>
+        <h3>Book Appointment</h3>
+        <p>Schedule online, by phone, or via our app. Same-day appointments available 24/7.</p>
+        <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
+      </div>
+      <div class="process-step-h2 reveal delay-2" style="position:relative;">
+        <div class="step-badge">2</div>
+        <h3>Meet Your Notary</h3>
+        <p>We arrive at your chosen location — on time, with all necessary equipment and supplies.</p>
+        <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
+      </div>
+      <div class="process-step-h2 reveal delay-3">
+        <div class="step-badge">3</div>
+        <h3>Sign Documents</h3>
+        <p>Your documents are notarized correctly and efficiently. Done — legally valid and secure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANCED BENEFITS -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="reveal-left">
+        <div class="section-badge"><i data-lucide="shield-check"></i> Our Advantages</div>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;margin-bottom:14px;line-height:1.2;">Why Professionals <span style="color:var(--accent);">Choose Us</span> Every Time</h2>
+        <p style="color:var(--text-secondary);margin-bottom:28px;line-height:1.8;">From individual clients to law firms and real estate agencies, NotaryPro delivers a premium experience that keeps clients coming back.</p>
+        <a href="about.html" class="btn btn-primary"><i data-lucide="arrow-right"></i> Learn Our Story</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;" class="reveal-right">
+        <div class="adv-benefit delay-1">
+          <div class="adv-benefit-icon"><i data-lucide="award"></i></div>
+          <div><h4>NNA Certified & Background Checked</h4><p>Verified credentials and full background check for your complete peace of mind.</p></div>
+        </div>
+        <div class="adv-benefit delay-2">
+          <div class="adv-benefit-icon"><i data-lucide="zap"></i></div>
+          <div><h4>Lightning-Fast Turnaround</h4><p>Same-day signings and emergency appointments fulfilled within hours.</p></div>
+        </div>
+        <div class="adv-benefit delay-3">
+          <div class="adv-benefit-icon"><i data-lucide="shield"></i></div>
+          <div><h4>E&O Insurance Covered</h4><p>Fully insured for errors and omissions, protecting both parties throughout.</p></div>
+        </div>
+        <div class="adv-benefit delay-4">
+          <div class="adv-benefit-icon"><i data-lucide="globe"></i></div>
+          <div><h4>50-Mile Service Radius</h4><p>We cover a wide area including all major cities and surrounding communities.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE SHOWCASE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="folder-open"></i> Case Showcase</div>
+      <h2>Real Scenarios, <span>Real Results</span></h2>
+      <p>See how we serve clients across different notary scenarios every day.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div class="showcase-card reveal delay-1">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Loan signing" loading="lazy" />
+        <div class="showcase-content">
+          <span class="showcase-tag">Loan Signing</span>
+          <h3>First-Home Purchase Closing</h3>
+          <p>Helped a young couple close on their first home with a flawless, on-time loan signing package.</p>
+        </div>
+      </div>
+      <div class="showcase-card reveal delay-2">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Legal documents" loading="lazy" />
+        <div class="showcase-content">
+          <span class="showcase-tag">Legal Affidavit</span>
+          <h3>Power of Attorney — Hospital</h3>
+          <p>Emergency bedside notarization of power of attorney documents for a hospitalized client.</p>
+        </div>
+      </div>
+      <div class="showcase-card reveal delay-3">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Business contracts" loading="lazy" />
+        <div class="showcase-content">
+          <span class="showcase-tag">Business</span>
+          <h3>Corporate Contract Signing</h3>
+          <p>Managed multi-party business contract notarization for a corporate merger at their office.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARE PLAN HIGHLIGHT -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="package"></i> Care Plans</div>
+      <h2>Subscription Plans for <span>Businesses</span></h2>
+      <p>Regular notary needs? Our care plans offer priority access and discounted rates.</p>
+    </div>
+    <div class="care-plan-teaser reveal">
+      <div class="teaser-icon"><i data-lucide="shield-check"></i></div>
+      <div>
+        <h3>Business Care Plan — Unlimited Signings</h3>
+        <p>Perfect for law firms, real estate agencies, title companies, and financial institutions with regular notarization needs. Get priority scheduling, dedicated service, and significant cost savings with our monthly subscription plans.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="care-plans.html" class="btn btn-primary"><i data-lucide="arrow-right"></i> View Plans</a>
+          <a href="contact.html" class="btn btn-secondary">Get Custom Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <h2>Stay <span style="color:var(--accent-light)">Informed</span></h2>
+  <p>Get legal tips, notary news, and service updates delivered to your inbox.</p>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" />
+    <button type="submit" class="btn btn-accent">Subscribe</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div>
+        <p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
+          <li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
+          <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li>
+          <li><a href="services.html">Power of Attorney</a></li><li><a href="care-plans.html">Business Plans</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div>
+        <div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div>
+        <div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Suite 100<br>Los Angeles, CA 90001</div>
+        <div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 — Always Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

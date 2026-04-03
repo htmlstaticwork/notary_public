@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Care Plans — NotaryPro</title>
+  <meta name="description" content="NotaryPro Care Plans for businesses, law firms, and real estate professionals. Monthly notary subscriptions with priority access." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .included-features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+    .inc-feature { display:flex; align-items:flex-start; gap:13px; padding:20px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); }
+    .inc-feature:hover { transform:translateX(5px); border-color:rgba(var(--primary-rgb),0.25); }
+    [dir="rtl"] .inc-feature:hover { transform:translateX(-5px); }
+    .inc-feature-icon { width:40px; height:40px; background:rgba(var(--primary-rgb),0.08); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--primary); flex-shrink:0; }
+    [data-theme="dark"] .inc-feature-icon { background:rgba(var(--accent-rgb),0.1); color:var(--accent-light); }
+    .inc-feature-icon svg { width:18px; height:18px; }
+    .inc-feature h4 { font-size:0.88rem; font-weight:700; margin-bottom:3px; }
+    .inc-feature p { font-size:0.8rem; color:var(--text-secondary); line-height:1.6; }
+    .companies-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; padding:20px 0; }
+    .company-tag { display:flex; align-items:center; gap:8px; color:var(--text-muted); font-size:0.87rem; font-weight:600; opacity:0.7; }
+    .company-tag svg { width:20px; height:20px; }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header"><nav class="nav-container">
+  <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
+    <li><a href="services.html">Services</a></li><li><a href="care-plans.html" class="active">Care Plans</a></li>
+    <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+  </ul>
+  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
+  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+</div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Care Plans</span></div>
+    <h1>Business Care <span>Plans</span></h1>
+    <p>Subscription-based notary services for law firms, real estate agencies, title companies, and high-frequency clients.</p>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="building"></i> Who It's For</div>
+      <h2>Built for <span>Professional Teams</span></h2>
+      <p>If your business regularly needs notarization, a Care Plan saves you time, money, and hassle.</p>
+    </div>
+    <div class="companies-row reveal">
+      <div class="company-tag"><i data-lucide="scale"></i> Law Firms</div>
+      <div class="company-tag"><i data-lucide="home"></i> Real Estate Agencies</div>
+      <div class="company-tag"><i data-lucide="building-2"></i> Title Companies</div>
+      <div class="company-tag"><i data-lucide="bank"></i> Financial Institutions</div>
+      <div class="company-tag"><i data-lucide="heart-pulse"></i> Healthcare Providers</div>
+      <div class="company-tag"><i data-lucide="briefcase"></i> Corporate Legal Depts</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="package"></i> Care Plans</div>
+      <h2>Choose Your <span>Plan</span></h2>
+      <p>Flexible monthly plans with priority access, dedicated service, and significant savings.</p>
+    </div>
+    <div class="plans-grid">
+      <!-- Basic -->
+      <div class="plan-card reveal delay-1">
+        <div class="plan-name">Basic</div>
+        <div class="plan-price-row"><span class="plan-price">$199</span><span class="plan-period">/month</span></div>
+        <p class="plan-desc">Ideal for small offices and solo practitioners with occasional notary needs.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><i data-lucide="check-circle"></i> 5 notarizations/month</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Mobile service included</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Standard scheduling</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Email support</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Monthly invoice</div>
+          <div class="plan-feature disabled"><i data-lucide="x-circle"></i> Priority scheduling</div>
+          <div class="plan-feature disabled"><i data-lucide="x-circle"></i> Dedicated agent</div>
+          <div class="plan-feature disabled"><i data-lucide="x-circle"></i> After-hours access</div>
+        </div>
+        <a href="contact.html" class="btn btn-secondary btn-full">Get Started</a>
+      </div>
+      <!-- Business (Featured) -->
+      <div class="plan-card featured reveal delay-2">
+        <div class="plan-popular">Most Popular</div>
+        <div class="plan-name">Business</div>
+        <div class="plan-price-row"><span class="plan-price">$499</span><span class="plan-period">/month</span></div>
+        <p class="plan-desc">Perfect for active real estate agencies and law firms with regular signing needs.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><i data-lucide="check-circle"></i> 20 notarizations/month</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Mobile service included</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Priority scheduling</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Phone & email support</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Monthly invoice</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Dedicated agent</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> After-hours access</div>
+          <div class="plan-feature disabled"><i data-lucide="x-circle"></i> Unlimited signings</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-full">Get Started</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="plan-card reveal delay-3">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price-row"><span class="plan-price">$999</span><span class="plan-period">/month</span></div>
+        <p class="plan-desc">Unlimited service for title companies, large firms, and high-volume institutions.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Unlimited notarizations</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Mobile service included</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> VIP priority scheduling</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> 24/7 dedicated support</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Monthly invoice + reports</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Dedicated agent team</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> After-hours & emergency</div>
+          <div class="plan-feature"><i data-lucide="check-circle"></i> Custom SLA agreement</div>
+        </div>
+        <a href="contact.html" class="btn btn-accent btn-full">Contact Sales</a>
+      </div>
+    </div>
+    <div class="text-center mt-4 reveal"><p style="color:var(--text-muted);font-size:0.85rem;">All plans include a 30-day money-back guarantee. No long-term contracts required.</p></div>
+  </div>
+</section>
+
+<!-- FEATURES INCLUDED -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="star"></i> What's Included</div>
+      <h2>Every Plan <span>Includes</span></h2>
+      <p>Core features included in all Care Plan subscriptions, regardless of tier.</p>
+    </div>
+    <div class="included-features">
+      <div class="inc-feature reveal delay-1"><div class="inc-feature-icon"><i data-lucide="shield-check"></i></div><div><h4>Certified Professional</h4><p>NNA-certified, background-checked, and E&O insured notary for every signing.</p></div></div>
+      <div class="inc-feature reveal delay-2"><div class="inc-feature-icon"><i data-lucide="car"></i></div><div><h4>Mobile Service</h4><p>We come to your office or client location — no travel hassle for your team.</p></div></div>
+      <div class="inc-feature reveal delay-3"><div class="inc-feature-icon"><i data-lucide="file-text"></i></div><div><h4>Digital Records</h4><p>Secure digital logs and receipts for every notarization in your account.</p></div></div>
+      <div class="inc-feature reveal delay-4"><div class="inc-feature-icon"><i data-lucide="receipt"></i></div><div><h4>Monthly Invoicing</h4><p>Clean, itemized monthly invoices for easy accounting and expense tracking.</p></div></div>
+      <div class="inc-feature reveal delay-1"><div class="inc-feature-icon"><i data-lucide="headphones"></i></div><div><h4>Dedicated Support</h4><p>A support contact who knows your business and responds within hours.</p></div></div>
+      <div class="inc-feature reveal delay-2"><div class="inc-feature-icon"><i data-lucide="zap"></i></div><div><h4>Priority Booking</h4><p>Skip the queue — plan subscribers get priority access to appointments.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="message-square"></i> Testimonials</div>
+      <h2>What Business <span>Clients Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Our law firm switched to the Business Care Plan 8 months ago. The priority scheduling and dedicated agent have transformed how we handle client signings. Absolutely worth every dollar.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Mark L." class="testimonial-avatar" loading="lazy" />
+          <div><strong>Mark Lawson</strong><span>Managing Partner, Lawson & Carr LLP</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">As a title company with 30+ closings per month, the Enterprise plan is a game-changer. Unlimited signings, always on time, and the reporting features help us track everything perfectly.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Maria C." class="testimonial-avatar" loading="lazy" />
+          <div><strong>Maria Chen</strong><span>Operations Manager, Pacific Title Co.</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">The Basic plan is perfect for our small office. Affordable, reliable, and professional. NotaryPro shows up exactly when needed — our clients always comment on the great service.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="James T." class="testimonial-avatar" loading="lazy" />
+          <div><strong>James Torres</strong><span>Real Estate Agent, Remax Elite</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to <span style="color:var(--accent-light)">Subscribe?</span></h2>
+  <p>Join dozens of businesses that trust NotaryPro for their ongoing notary needs.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg"><i data-lucide="phone"></i> Discuss with Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary services, 24/7 availability.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Plans</h4><ul><li><a href="care-plans.html">Basic Plan</a></li><li><a href="care-plans.html">Business Plan</a></li><li><a href="care-plans.html">Enterprise Plan</a></li><li><a href="contact.html">Custom Quote</a></li></ul></div>
+  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles CA</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
+</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — NotaryPro</title>
+  <meta name="description" content="Learn about NotaryPro — our story, certifications, experience, mission, and work process as a certified mobile notary and loan signing agent." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cert-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; text-align:center; transition:var(--transition); }
+    .cert-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .cert-icon { width:56px; height:56px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; color:white; }
+    .cert-icon svg { width:24px; height:24px; }
+    .cert-card h3 { font-size:0.92rem; font-weight:700; margin-bottom:5px; }
+    .cert-card p { font-size:0.8rem; color:var(--text-muted); }
+    .value-card { display:flex; align-items:flex-start; gap:14px; padding:22px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); }
+    .value-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .value-card-icon { width:44px; height:44px; background:rgba(var(--accent-rgb),0.1); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--accent-dark); flex-shrink:0; }
+    [data-theme="dark"] .value-card-icon { color:var(--accent-light); }
+    .value-card-icon svg { width:20px; height:20px; }
+    .value-card h4 { font-size:0.92rem; font-weight:700; margin-bottom:4px; }
+    .value-card p { font-size:0.82rem; color:var(--text-secondary); line-height:1.65; }
+    .timeline { position:relative; padding-left:32px; }
+    [dir="rtl"] .timeline { padding-left:0; padding-right:32px; }
+    .timeline::before { content:''; position:absolute; left:12px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--primary),var(--accent)); }
+    [dir="rtl"] .timeline::before { left:auto; right:12px; }
+    .timeline-item { position:relative; padding-bottom:28px; }
+    .timeline-item::before { content:''; position:absolute; left:-25px; top:5px; width:14px; height:14px; border-radius:50%; background:var(--primary); border:3px solid var(--bg); box-shadow:0 0 0 2px var(--primary); }
+    [dir="rtl"] .timeline-item::before { left:auto; right:-25px; }
+    .timeline-item h4 { font-size:0.93rem; font-weight:700; margin-bottom:4px; }
+    .timeline-item p { font-size:0.83rem; color:var(--text-secondary); line-height:1.65; }
+    .timeline-item .step-label { display:inline-flex; align-items:center; gap:4px; font-size:0.7rem; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:5px; }
+    [data-theme="dark"] .timeline-item .step-label { color:var(--accent-light); }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header"><nav class="nav-container">
+  <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
+    <li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
+    <li><a href="about.html" class="active">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+  </ul>
+  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
+  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+</div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>About</span></div>
+    <h1>About <span>NotaryPro</span></h1>
+    <p>A decade of trusted notary service — certified, professional, and always at your doorstep.</p>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar"><div class="container"><div class="stats-bar-grid">
+  <div class="stat-bar-item"><span class="stat-number" data-counter data-target="1200" data-suffix="+">1200+</span><div class="stat-label">Documents Notarized</div></div>
+  <div class="stat-bar-item"><span class="stat-number" data-counter data-target="500" data-suffix="+">500+</span><div class="stat-label">Happy Clients</div></div>
+  <div class="stat-bar-item"><span class="stat-number" data-counter data-target="10" data-suffix="+">10+</span><div class="stat-label">Years Experience</div></div>
+  <div class="stat-bar-item"><span class="stat-number" data-counter data-target="99" data-suffix="%">99%</span><div class="stat-label">Client Satisfaction</div></div>
+</div></div></div>
+
+<!-- ABOUT NOTARY -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal-left">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" alt="Professional notary" loading="lazy" />
+        <div class="about-exp-badge"><span class="years">10+</span><span class="years-label">Years of Trust</span></div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-badge"><i data-lucide="user"></i> Our Story</div>
+        <h2>A Notary You Can <span>Trust</span></h2>
+        <p>NotaryPro was founded with a simple mission: make professional notary services accessible, convenient, and affordable for everyone. After over a decade serving the greater Los Angeles area, we've built a reputation on professionalism, accuracy, and reliability.</p>
+        <p>We understand that your time is valuable. That's why we come to you — at your home, office, hospital bedside, or any location that works best. Whether it's a loan signing at midnight or emergency power of attorney at a hospital, we're there when it matters most.</p>
+        <div class="about-features">
+          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="map-pin"></i></div><div class="about-feature-text"><strong>Based in Los Angeles, CA</strong><span>Serving LA County and surrounding areas within 50 miles</span></div></div>
+          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="award"></i></div><div class="about-feature-text"><strong>NNA Certified & Background Checked</strong><span>Fully verified, bonded, and insured professional</span></div></div>
+          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="clock"></i></div><div class="about-feature-text"><strong>Available Any Time</strong><span>Evenings, weekends, holidays, and emergency signings</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="award"></i> Credentials</div>
+      <h2>Certifications & <span>Experience</span></h2>
+      <p>Fully credentialed and continuously trained to serve you with the highest professional standards.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;">
+      <div class="cert-card reveal delay-1"><div class="cert-icon"><i data-lucide="award"></i></div><h3>NNA Certified</h3><p>National Notary Association certified professional</p></div>
+      <div class="cert-card reveal delay-2"><div class="cert-icon"><i data-lucide="shield-check"></i></div><h3>Background Checked</h3><p>Clear NNA background screening — verified identity</p></div>
+      <div class="cert-card reveal delay-3"><div class="cert-icon"><i data-lucide="scroll"></i></div><h3>State Commissioned</h3><p>California Secretary of State commissioned notary</p></div>
+      <div class="cert-card reveal delay-4"><div class="cert-icon"><i data-lucide="briefcase"></i></div><h3>Loan Signing Agent</h3><p>Certified LSA trained for all lender packages</p></div>
+      <div class="cert-card reveal delay-1"><div class="cert-icon"><i data-lucide="lock"></i></div><h3>E&O Insured</h3><p>Errors & Omissions insurance coverage included</p></div>
+      <div class="cert-card reveal delay-2"><div class="cert-icon"><i data-lucide="monitor"></i></div><h3>RON Certified</h3><p>Remote Online Notarization — state approved</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="heart"></i> Mission & Values</div>
+      <h2>What We <span>Stand For</span></h2>
+      <p>Our core values guide every appointment, every document, and every client interaction.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+      <div class="value-card reveal delay-1"><div class="value-card-icon"><i data-lucide="target"></i></div><div><h4>Our Mission</h4><p>To make professional notary services universally accessible — fast, mobile, and available 24/7 for every person and business that needs it.</p></div></div>
+      <div class="value-card reveal delay-2"><div class="value-card-icon"><i data-lucide="eye"></i></div><div><h4>Our Vision</h4><p>To be the most trusted mobile notary service in California, known for our reliability, professionalism, and client-first approach.</p></div></div>
+      <div class="value-card reveal delay-3"><div class="value-card-icon"><i data-lucide="handshake"></i></div><div><h4>Integrity</h4><p>We handle every document and every client with complete honesty, transparency, and confidentiality.</p></div></div>
+      <div class="value-card reveal delay-4"><div class="value-card-icon"><i data-lucide="zap"></i></div><div><h4>Excellence</h4><p>We hold ourselves to the highest standards in accuracy, presentation, and professional conduct.</p></div></div>
+      <div class="value-card reveal delay-1"><div class="value-card-icon"><i data-lucide="users"></i></div><div><h4>Client First</h4><p>Your convenience is our priority. We adapt to your schedule, location, and unique document needs.</p></div></div>
+      <div class="value-card reveal delay-2"><div class="value-card-icon"><i data-lucide="refresh-cw"></i></div><div><h4>Continuous Learning</h4><p>We stay current with all notary laws, regulations, and best practices to serve you better.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK PROCESS -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+      <div class="reveal-left">
+        <div class="section-badge"><i data-lucide="list-ordered"></i> Our Process</div>
+        <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;margin-bottom:14px;line-height:1.2;">How We <span style="color:var(--accent)">Work</span></h2>
+        <p style="color:var(--text-secondary);margin-bottom:32px;line-height:1.8;">A streamlined, professional process to ensure your documents are handled correctly from start to finish.</p>
+        <div class="timeline">
+          <div class="timeline-item"><div class="step-label"><i data-lucide="circle-dot"></i> Step 1</div><h4>Initial Contact</h4><p>Call, text, or book online. We confirm your document type, availability, and location preference.</p></div>
+          <div class="timeline-item"><div class="step-label"><i data-lucide="circle-dot"></i> Step 2</div><h4>Appointment Confirmation</h4><p>We confirm the time, location, and document requirements. You receive a confirmation message.</p></div>
+          <div class="timeline-item"><div class="step-label"><i data-lucide="circle-dot"></i> Step 3</div><h4>Document Review</h4><p>On arrival, documents are reviewed for completeness and the signers are identified per legal requirements.</p></div>
+          <div class="timeline-item"><div class="step-label"><i data-lucide="circle-dot"></i> Step 4</div><h4>Notarization</h4><p>Documents are signed, sealed, and notarized correctly. Every detail is checked for accuracy.</p></div>
+          <div class="timeline-item" style="padding-bottom:0;"><div class="step-label"><i data-lucide="circle-dot"></i> Step 5</div><h4>Completion & Delivery</h4><p>You receive your notarized documents and a receipt. For loan signings, packages are returned to title companies promptly.</p></div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Professional office" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Let's Work <span style="color:var(--accent-light)">Together</span></h2>
+  <p>Book your appointment today. Professional, mobile, and always available.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg"><i data-lucide="clock"></i> Schedule Appointment</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary services, 24/7 availability.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li></ul></div>
+  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> Los Angeles, CA 90001</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
+</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

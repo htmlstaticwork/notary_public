@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — NotaryPro</title>
+  <meta name="description" content="Contact NotaryPro to book a notary appointment. Available 24/7 for mobile notary and loan signing services." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header"><nav class="nav-container">
+  <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
+    <li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
+    <li><a href="about.html">About</a></li><li><a href="contact.html" class="active">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+  </ul>
+  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
+  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+</div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Contact</span></div>
+    <h1>Get in <span>Touch</span></h1>
+    <p>Ready to book? Have questions? We're available 24/7. Reach out by phone, email, or the form below.</p>
+  </div>
+</div>
+
+<!-- CONTACT GRID -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Left -->
+      <div>
+        <div class="section-badge" style="margin-bottom:20px;"><i data-lucide="info"></i> Contact Details</div>
+        <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:6px;line-height:1.2;">We're Available <span style="color:var(--accent)">24/7</span></h2>
+        <p style="color:var(--text-secondary);margin-bottom:28px;">Call, text, email, or fill out the form — we'll respond within minutes for urgent requests.</p>
+        <div class="contact-info reveal">
+          <div class="contact-info-item">
+            <div class="contact-icon"><i data-lucide="phone"></i></div>
+            <div><h4>Phone & Text</h4><p><a href="tel:+15551234567">+1 (555) 123-4567</a></p><p style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Call or text anytime, 24/7</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i data-lucide="mail"></i></div>
+            <div><h4>Email</h4><p><a href="mailto:info@notarypro.com">info@notarypro.com</a></p><p style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Response within 1 hour</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+            <div><h4>Service Area</h4><p>123 Legal Ave, Suite 100<br>Los Angeles, CA 90001</p><p style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">50-mile mobile service radius</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i data-lucide="clock"></i></div>
+            <div><h4>Availability</h4><p>24 hours a day, 7 days a week</p><p style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Including holidays & emergencies</p></div>
+          </div>
+        </div>
+        <!-- Working Hours -->
+        <div class="working-hours reveal">
+          <h4><i data-lucide="clock" style="width:16px;height:16px;display:inline;margin-right:6px;"></i> Service Hours</h4>
+          <div class="hours-item"><span class="day">Monday – Friday</span><span class="time">6:00 AM – 10:00 PM <span class="badge-available">Available</span></span></div>
+          <div class="hours-item"><span class="day">Saturday</span><span class="time">7:00 AM – 9:00 PM <span class="badge-available">Available</span></span></div>
+          <div class="hours-item"><span class="day">Sunday</span><span class="time">8:00 AM – 8:00 PM <span class="badge-available">Available</span></span></div>
+          <div class="hours-item"><span class="day">Emergency / After-Hours</span><span class="time">24/7 <span class="badge-available">Available</span></span></div>
+        </div>
+      </div>
+      <!-- Form Right -->
+      <div class="reveal-right">
+        <div class="contact-form-card">
+          <h3>Book an Appointment</h3>
+          <p>Fill out the form and we'll confirm your appointment within 30 minutes.</p>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-fname">First Name</label>
+                <input class="form-input" id="cf-fname" type="text" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-lname">Last Name</label>
+                <input class="form-input" id="cf-lname" type="text" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-email">Email Address</label>
+                <input class="form-input" id="cf-email" type="email" placeholder="john@email.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-phone">Phone Number</label>
+                <input class="form-input" id="cf-phone" type="tel" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-service">Service Needed</label>
+              <select class="form-input" id="cf-service">
+                <option value="">Select a service...</option>
+                <option>Loan Signing</option>
+                <option>Mobile Notary</option>
+                <option>Real Estate Documents</option>
+                <option>Legal Affidavit</option>
+                <option>Power of Attorney</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-date">Preferred Date</label>
+                <input class="form-input" id="cf-date" type="date" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-time">Preferred Time</label>
+                <input class="form-input" id="cf-time" type="time" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-location">Appointment Location</label>
+              <input class="form-input" id="cf-location" type="text" placeholder="Your address or preferred meeting location" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-message">Additional Notes</label>
+              <textarea class="form-input" id="cf-message" placeholder="Any special instructions or document details..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-lg"><i data-lucide="send"></i> Send Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Map -->
+    <div class="map-wrapper reveal" style="margin-top:56px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.4836!2d-118.2437!3d34.0549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fbe89f93b82e4!2sLos+Angeles%2C+CA+90001!5e0!3m2!1sen!2sus!4v1699999999" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NotaryPro Service Location"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Need a Notary <span style="color:var(--accent-light)">Now?</span></h2>
+  <p>Emergency appointments available around the clock. Don't wait — call us immediately.</p>
+  <div class="cta-buttons">
+    <a href="tel:+15551234567" class="btn btn-accent btn-lg"><i data-lucide="phone"></i> Call (555) 123-4567</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary services, 24/7 availability.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li></ul></div>
+  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> Los Angeles, CA 90001</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
+</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — NotaryPro</title>
+  <meta name="description" content="Explore our full range of notary services including loan signing, mobile notary, real estate documents, legal affidavits, and more." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .services-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; }
+    .service-detail-card {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
+      overflow:hidden; transition:var(--transition);
+    }
+    .service-detail-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .service-detail-card img { width:100%; height:200px; object-fit:cover; }
+    .service-detail-content { padding:24px; }
+    .service-detail-content h3 { font-size:1.1rem; font-weight:800; margin-bottom:8px; }
+    .service-detail-content p { font-size:0.86rem; color:var(--text-secondary); line-height:1.75; margin-bottom:16px; }
+    .service-detail-features { display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
+    .s-feature { display:flex; align-items:center; gap:9px; font-size:0.83rem; color:var(--text-secondary); }
+    .s-feature svg { width:14px; height:14px; color:var(--primary); flex-shrink:0; }
+    [data-theme="dark"] .s-feature svg { color:var(--accent-light); }
+    .service-detail-price { display:flex; align-items:baseline; gap:6px; margin-bottom:16px; padding-top:14px; border-top:1px solid var(--border); }
+    .s-price { font-size:1.6rem; font-weight:900; color:var(--primary); }
+    [data-theme="dark"] .s-price { color:var(--accent-light); }
+    .s-from { font-size:0.78rem; color:var(--text-muted); }
+
+    /* Pricing Table */
+    .pricing-note { text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:20px; }
+    .pricing-table { width:100%; border-collapse:collapse; background:var(--bg-card); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
+    .pricing-table th { background:var(--primary); color:white; padding:14px 20px; text-align:left; font-size:0.87rem; font-weight:700; }
+    [dir="rtl"] .pricing-table th { text-align:right; }
+    .pricing-table td { padding:13px 20px; font-size:0.85rem; border-bottom:1px solid var(--border); color:var(--text-secondary); }
+    .pricing-table tr:last-child td { border-bottom:none; }
+    .pricing-table tr:hover td { background:var(--bg-secondary); }
+    .pricing-table td:first-child { font-weight:600; color:var(--text); }
+    .price-cell { font-weight:700; color:var(--primary); }
+    [data-theme="dark"] .price-cell { color:var(--accent-light); }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header"><nav class="nav-container">
+  <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
+    <li><a href="services.html" class="active">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
+    <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+  </ul>
+  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
+  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+</div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Services</span></div>
+    <h1>Our Notary <span>Services</span></h1>
+    <p>Comprehensive notarization solutions for individuals, businesses, law firms, and real estate professionals.</p>
+  </div>
+</div>
+
+<!-- ALL SERVICES OVERVIEW GRID -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="grid-3x3"></i> All Services</div>
+      <h2>What We <span>Offer</span></h2>
+      <p>Every notary service you need, delivered professionally at your location.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="file-signature"></i></div><h3>Loan Signing</h3><p>Certified LSA for all real estate loan document packages including purchase, refinance, and HELOC signings.</p><a href="#loan-signing" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="car"></i></div><h3>Mobile Notary</h3><p>We come to your home, office, hospital, or any location within our 50-mile service area.</p><a href="#mobile-notary" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="home"></i></div><h3>Real Estate Docs</h3><p>Deeds, title transfers, purchase agreements, and all real estate transaction documents.</p><a href="#real-estate" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="scroll"></i></div><h3>Legal Affidavits</h3><p>Sworn statements, power of attorney, wills, trusts, and all notarized legal affidavits.</p><a href="#affidavits" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="pen-tool"></i></div><h3>Power of Attorney</h3><p>General, limited, durable, and medical POA documents notarized quickly and accurately.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="heart"></i></div><h3>Healthcare Directives</h3><p>Living wills, advance directives, and healthcare proxy documents notarized with care.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="globe"></i></div><h3>Immigration Docs</h3><p>Certified translations and notarization of immigration-related documents and affidavits.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="building"></i></div><h3>Corporate Documents</h3><p>Business contracts, corporate resolutions, articles of incorporation, and more.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILED SERVICE CARDS -->
+<section class="section section-alt" id="loan-signing">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="star"></i> Detailed Services</div>
+      <h2>In-Depth <span>Service Details</span></h2>
+      <p>Everything you need to know about our most popular services.</p>
+    </div>
+    <div class="services-detail-grid">
+      <div class="service-detail-card reveal delay-1">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Loan signing" loading="lazy" />
+        <div class="service-detail-content">
+          <h3>Loan Signing Agent Services</h3>
+          <p>As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time to the title company or lender.</p>
+          <div class="service-detail-features">
+            <div class="s-feature"><i data-lucide="check"></i> Purchase loan signings</div>
+            <div class="s-feature"><i data-lucide="check"></i> Refinance packages</div>
+            <div class="s-feature"><i data-lucide="check"></i> HELOC & home equity</div>
+            <div class="s-feature"><i data-lucide="check"></i> Reverse mortgage</div>
+          </div>
+          <div class="service-detail-price">
+            <span class="s-from">From</span><span class="s-price">$75</span><span style="font-size:0.82rem;color:var(--text-muted)">per signing</span>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
+        </div>
+      </div>
+      <div class="service-detail-card reveal delay-2" id="mobile-notary">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=600&q=80" alt="Mobile notary" loading="lazy" />
+        <div class="service-detail-content">
+          <h3>Mobile Notary Services</h3>
+          <p>We eliminate the inconvenience of finding a notary. We come directly to you — wherever you are — ready with all necessary supplies to notarize your documents on the spot.</p>
+          <div class="service-detail-features">
+            <div class="s-feature"><i data-lucide="check"></i> Home, office & hospital visits</div>
+            <div class="s-feature"><i data-lucide="check"></i> Weekend & evening appointments</div>
+            <div class="s-feature"><i data-lucide="check"></i> 50-mile service radius</div>
+            <div class="s-feature"><i data-lucide="check"></i> Same-day availability</div>
+          </div>
+          <div class="service-detail-price">
+            <span class="s-from">From</span><span class="s-price">$50</span><span style="font-size:0.82rem;color:var(--text-muted)">per appointment</span>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
+        </div>
+      </div>
+      <div class="service-detail-card reveal delay-3" id="real-estate">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Real estate documents" loading="lazy" />
+        <div class="service-detail-content">
+          <h3>Real Estate Documents</h3>
+          <p>From deeds and title transfers to purchase agreements and closing disclosures, we handle every real estate document with meticulous attention to detail and compliance.</p>
+          <div class="service-detail-features">
+            <div class="s-feature"><i data-lucide="check"></i> Grant & quitclaim deeds</div>
+            <div class="s-feature"><i data-lucide="check"></i> Title transfer documents</div>
+            <div class="s-feature"><i data-lucide="check"></i> Closing disclosures</div>
+            <div class="s-feature"><i data-lucide="check"></i> Purchase agreements</div>
+          </div>
+          <div class="service-detail-price">
+            <span class="s-from">From</span><span class="s-price">$65</span><span style="font-size:0.82rem;color:var(--text-muted)">per document set</span>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="dollar-sign"></i> Pricing</div>
+      <h2>Transparent <span>Service Rates</span></h2>
+      <p>No hidden fees. Clear, competitive pricing for all notary services.</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>Base Rate</th><th>Travel Fee</th><th>Estimated Total</th><th>Availability</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Loan Signing (Standard)</td><td class="price-cell">$75</td><td>Included</td><td class="price-cell">$75</td><td>24/7</td></tr>
+          <tr><td>Loan Signing (Complex)</td><td class="price-cell">$125</td><td>Included</td><td class="price-cell">$125</td><td>24/7</td></tr>
+          <tr><td>Mobile Notary (Local)</td><td class="price-cell">$50</td><td>Included</td><td class="price-cell">$50</td><td>24/7</td></tr>
+          <tr><td>Mobile Notary (Extended)</td><td class="price-cell">$50</td><td>$0.65/mi</td><td class="price-cell">Varies</td><td>24/7</td></tr>
+          <tr><td>Real Estate Documents</td><td class="price-cell">$65</td><td>Included</td><td class="price-cell">$65</td><td>24/7</td></tr>
+          <tr><td>Power of Attorney</td><td class="price-cell">$40</td><td>Included</td><td class="price-cell">$40</td><td>24/7</td></tr>
+          <tr><td>Legal Affidavit</td><td class="price-cell">$35</td><td>Included</td><td class="price-cell">$35</td><td>24/7</td></tr>
+          <tr><td>Emergency / After-Hours</td><td class="price-cell">+$25</td><td>Included</td><td class="price-cell">Base + $25</td><td>Emergency</td></tr>
+        </tbody>
+      </table>
+      <p class="pricing-note"><i data-lucide="info"></i> State notary fees per signature may apply. Contact us for exact quotes on complex documents.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt" id="affidavits">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="help-circle"></i> FAQ</div>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Everything you need to know about our notary services.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question">What documents do I need to bring to my appointment? <span class="faq-icon"><i data-lucide="chevron-down"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Please bring a valid government-issued photo ID (driver's license, passport, or state ID). For loan signings, the title company will send all documents in advance. For other services, bring the documents that need notarization and any additional forms required.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How far in advance do I need to schedule? <span class="faq-icon"><i data-lucide="chevron-down"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We accommodate same-day appointments whenever possible. For loan signings, we recommend at least 2-4 hours notice. Emergency appointments are available 24/7 for urgent needs.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer remote online notarization (RON)? <span class="faq-icon"><i data-lucide="chevron-down"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! We offer Remote Online Notarization (RON) via video conference for documents permitted by California law. This is a secure, convenient option for clients who cannot meet in person.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Are you bonded and insured? <span class="faq-icon"><i data-lucide="chevron-down"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We carry Errors & Omissions (E&O) insurance and a notary bond as required by California law. Your documents and transactions are fully protected throughout the signing process.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What forms of payment do you accept? <span class="faq-icon"><i data-lucide="chevron-down"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We accept cash, check, Zelle, Venmo, PayPal, and all major credit and debit cards. For corporate accounts, we also offer monthly invoicing through our Care Plans.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Get <span style="color:var(--accent-light)">Started?</span></h2>
+  <p>Book your notary appointment today. Fast, professional, and convenient.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg"><i data-lucide="clock"></i> Schedule Appointment</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li><li><a href="care-plans.html">Business Plans</a></li></ul></div>
+  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles CA</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
+</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

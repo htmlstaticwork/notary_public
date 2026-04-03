@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — NotaryPro</title>
+  <meta name="description" content="NotaryPro client dashboard — manage your appointments, documents, and account." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body class="dashboard-body">
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><i data-lucide="scale"></i></div>
+      <span class="logo-text">NotaryPro</span>
+    </div>
+    <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle sidebar">
+      <i data-lucide="panel-left-close"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Main</div>
+    <ul>
+      <li class="sidebar-nav-item active">
+        <a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#appointments"><i data-lucide="calendar-check"></i> Appointments <span class="sidebar-badge">3</span></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#services-booked"><i data-lucide="briefcase"></i> Services Booked</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#care-plans-section"><i data-lucide="shield-check"></i> Care Plans</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#documents"><i data-lucide="file-text"></i> Documents</a>
+      </li>
+    </ul>
+    <div class="nav-section-label" style="margin-top:12px;">Account</div>
+    <ul>
+      <li class="sidebar-nav-item">
+        <a href="#notifications"><i data-lucide="bell"></i> Notifications <span class="sidebar-badge">5</span></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="#profile"><i data-lucide="user-circle"></i> Profile</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">K</div>
+      <div class="sidebar-profile-info">
+        <strong>Karthick</strong>
+        <span>Business Plan</span>
+      </div>
+    </div>
+    <div class="sidebar-logout">
+      <i data-lucide="log-out"></i>
+      <a href="login.html" style="color:inherit;">Logout</a>
+    </div>
+  </div>
+</aside>
+
+<!-- Sidebar overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- ═══════════ MAIN CONTENT ═══════════ -->
+<main class="dashboard-main">
+
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="d-header-left">
+      <button class="d-icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <i data-lucide="menu"></i>
+      </button>
+      <div>
+        <h2>Dashboard</h2>
+        <div class="d-breadcrumb">Home / Dashboard</div>
+      </div>
+    </div>
+    <div class="d-header-right">
+      <div class="d-search-bar">
+        <i data-lucide="search"></i>
+        <span>Search...</span>
+      </div>
+      <button class="d-icon-btn" id="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+      <button class="d-icon-btn" id="rtl-toggle" aria-label="Toggle RTL"><i data-lucide="languages"></i></button>
+      <div class="d-icon-btn" style="position:relative;">
+        <i data-lucide="bell"></i>
+        <span class="d-notif-dot"></span>
+      </div>
+      <div class="d-avatar" title="Karthick">K</div>
+    </div>
+  </header>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard-content">
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <div class="welcome-text">
+        <h1>Welcome back, Karthick 👋</h1>
+        <p>Here's what's happening with your notary account today.</p>
+      </div>
+      <div class="welcome-action">
+        <a href="contact.html" class="btn btn-accent"><i data-lucide="calendar-plus"></i> Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Metric Cards -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon blue"><i data-lucide="calendar-check"></i></div>
+        <div class="metric-info">
+          <div class="metric-label">Appointments Booked</div>
+          <div class="metric-value" data-counter data-target="24">24</div>
+          <div class="metric-change up"><i data-lucide="trending-up"></i> +3 this month</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon green"><i data-lucide="check-circle"></i></div>
+        <div class="metric-info">
+          <div class="metric-label">Completed Signings</div>
+          <div class="metric-value" data-counter data-target="21">21</div>
+          <div class="metric-change up"><i data-lucide="trending-up"></i> +2 this week</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon amber"><i data-lucide="clock"></i></div>
+        <div class="metric-info">
+          <div class="metric-label">Pending Requests</div>
+          <div class="metric-value" data-counter data-target="3">3</div>
+          <div class="metric-change down"><i data-lucide="trending-down"></i> Needs attention</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon purple"><i data-lucide="shield-check"></i></div>
+        <div class="metric-info">
+          <div class="metric-label">Active Plans</div>
+          <div class="metric-value" data-counter data-target="1">1</div>
+          <div class="metric-change up"><i data-lucide="trending-up"></i> Business Plan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="dashboard-grid" id="appointments">
+
+      <!-- Left Column -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Upcoming Appointments -->
+        <div class="d-card">
+          <div class="d-card-header">
+            <h3><i data-lucide="calendar" style="width:16px;height:16px;display:inline;margin-right:5px;"></i> Upcoming Appointments</h3>
+            <a href="#">View All</a>
+          </div>
+
+          <div class="appointment-item">
+            <div class="appt-date"><span class="appt-day">08</span><span class="appt-month">Apr</span></div>
+            <div class="appt-info">
+              <strong>Loan Signing — Purchase</strong>
+              <span>1248 Elm Street, Pasadena, CA</span>
+              <div class="appt-meta">
+                <span class="appt-time"><i data-lucide="clock"></i> 10:00 AM</span>
+                <span class="appt-status status-confirmed">Confirmed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="appointment-item">
+            <div class="appt-date"><span class="appt-day">10</span><span class="appt-month">Apr</span></div>
+            <div class="appt-info">
+              <strong>Power of Attorney — Home</strong>
+              <span>Client's Residence, Glendale, CA</span>
+              <div class="appt-meta">
+                <span class="appt-time"><i data-lucide="clock"></i> 2:30 PM</span>
+                <span class="appt-status status-pending">Pending</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="appointment-item">
+            <div class="appt-date"><span class="appt-day">15</span><span class="appt-month">Apr</span></div>
+            <div class="appt-info">
+              <strong>Real Estate — Deed Transfer</strong>
+              <span>Title Company Office, Burbank, CA</span>
+              <div class="appt-meta">
+                <span class="appt-time"><i data-lucide="clock"></i> 11:00 AM</span>
+                <span class="appt-status status-confirmed">Confirmed</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="d-card" id="services-booked">
+          <div class="d-card-header">
+            <h3><i data-lucide="activity" style="width:16px;height:16px;display:inline;margin-right:5px;"></i> Recent Activity</h3>
+            <a href="#">View All</a>
+          </div>
+
+          <div class="activity-item">
+            <div class="activity-dot green"><i data-lucide="check-circle"></i></div>
+            <div class="activity-info">
+              <strong>Loan signing completed</strong>
+              <span>Today at 9:45 AM — 432 Oak Ave, LA</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot blue"><i data-lucide="calendar-plus"></i></div>
+            <div class="activity-info">
+              <strong>New appointment booked</strong>
+              <span>Yesterday at 3:12 PM — Apr 10 appointment</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot green"><i data-lucide="file-check"></i></div>
+            <div class="activity-info">
+              <strong>Document uploaded</strong>
+              <span>3 days ago — POA_signed_v2.pdf</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot amber"><i data-lucide="credit-card"></i></div>
+            <div class="activity-info">
+              <strong>Payment processed</strong>
+              <span>4 days ago — $75.00 for loan signing</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot green"><i data-lucide="check-circle"></i></div>
+            <div class="activity-info">
+              <strong>Affidavit notarized</strong>
+              <span>1 week ago — 789 Pine St, Torrance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Profile Summary -->
+        <div class="d-card" id="profile">
+          <div class="d-card-header"><h3>Profile Summary</h3><a href="#">Edit</a></div>
+          <div class="profile-summary">
+            <div class="profile-summary-header">
+              <div class="profile-large-avatar">K</div>
+              <h3>Karthick Ranganathan</h3>
+              <span>karthick@email.com</span>
+              <span class="plan-badge">Business Plan</span>
+            </div>
+            <div class="profile-stat-row">
+              <div class="profile-stat"><span class="ps-value">24</span><span class="ps-label">Bookings</span></div>
+              <div class="profile-stat"><span class="ps-value">21</span><span class="ps-label">Completed</span></div>
+              <div class="profile-stat"><span class="ps-value">3</span><span class="ps-label">Pending</span></div>
+            </div>
+            <div class="profile-info-row"><i data-lucide="phone"></i> +1 (555) 987-6543</div>
+            <div class="profile-info-row"><i data-lucide="map-pin"></i> Los Angeles, CA</div>
+            <div class="profile-info-row"><i data-lucide="calendar"></i> Member since Jan 2024</div>
+            <div style="margin-top:16px;">
+              <a href="#" class="btn btn-secondary btn-full btn-sm"><i data-lucide="edit"></i> Edit Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications Panel -->
+        <div class="d-card" id="notifications">
+          <div class="d-card-header">
+            <h3><i data-lucide="bell" style="width:15px;height:15px;display:inline;margin-right:5px;"></i> Notifications</h3>
+            <a href="#">Mark all read</a>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon"><i data-lucide="calendar-check"></i></div>
+            <div class="notif-text">
+              <strong>Appointment confirmed</strong>
+              <span>Apr 8 loan signing — 10:00 AM · Just now</span>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon"><i data-lucide="bell"></i></div>
+            <div class="notif-text">
+              <strong>Reminder: Appointment Tomorrow</strong>
+              <span>Apr 10 POA signing at 2:30 PM · 1 hr ago</span>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-icon"><i data-lucide="receipt"></i></div>
+            <div class="notif-text">
+              <strong>Payment receipt sent</strong>
+              <span>$75.00 via email · 4 days ago</span>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-icon"><i data-lucide="shield-check"></i></div>
+            <div class="notif-text">
+              <strong>Plan renewal upcoming</strong>
+              <span>Business Plan renews Apr 30 · 1 week ago</span>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-icon"><i data-lucide="star"></i></div>
+            <div class="notif-text">
+              <strong>Leave a review</strong>
+              <span>How was your last signing? · 1 week ago</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Documents Section -->
+    <div class="d-card" id="documents" style="margin-top:4px;">
+      <div class="d-card-header">
+        <h3><i data-lucide="file-text" style="width:16px;height:16px;display:inline;margin-right:5px;"></i> My Documents</h3>
+        <a href="#" class="btn btn-primary btn-sm"><i data-lucide="upload"></i> Upload</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;">
+        <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;transition:var(--transition);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="width:44px;height:44px;background:rgba(239,68,68,0.1);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#ef4444;"><i data-lucide="file-text"></i></div>
+          <p style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">loan_closing_mar24.pdf</p>
+          <p style="font-size:0.72rem;color:var(--text-muted);">Mar 15, 2024 · 2.4 MB</p>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;transition:var(--transition);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="width:44px;height:44px;background:rgba(59,130,246,0.1);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#3b82f6;"><i data-lucide="file-text"></i></div>
+          <p style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">POA_signed_v2.pdf</p>
+          <p style="font-size:0.72rem;color:var(--text-muted);">Mar 30, 2024 · 1.1 MB</p>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;transition:var(--transition);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="width:44px;height:44px;background:rgba(34,197,94,0.1);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#22c55e;"><i data-lucide="file-check"></i></div>
+          <p style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">affidavit_notarized.pdf</p>
+          <p style="font-size:0.72rem;color:var(--text-muted);">Feb 22, 2024 · 850 KB</p>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px dashed var(--border);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;transition:var(--transition);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100px;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="color:var(--text-muted);margin-bottom:7px;"><i data-lucide="upload-cloud" style="width:28px;height:28px;"></i></div>
+          <p style="font-size:0.8rem;color:var(--text-muted);">Upload Document</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

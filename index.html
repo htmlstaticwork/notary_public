@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotaryPro — Trusted Mobile Notary Services</title>
+  <meta name="description" content="Professional mobile notary and loan signing agent services. Available 24/7 at your doorstep. Certified, fast, and reliable." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header" id="site-header">
+  <nav class="nav-container">
+    <div class="nav-logo">
+      <a href="index.html">
+        <div class="logo-icon"><i data-lucide="scale"></i></div>
+        <span class="logo-text">NotaryPro</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="care-plans.html">Care Plans</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-ctas">
+        <a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a>
+      </div>
+      <div class="nav-toggles">
+        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+        <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL"><i data-lucide="languages"></i></button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
+      <button class="drawer-close" id="drawer-close">✕</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li>
+      <li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
+      <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li>
+      <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
+      <li><a href="about.html"><i data-lucide="user"></i> About</a></li>
+      <li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    </ul>
+    <div class="drawer-toggles">
+      <button class="toggle-btn" id="theme-toggle-m" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+      <button class="toggle-btn" id="rtl-toggle-m" aria-label="Toggle RTL"><i data-lucide="languages"></i></button>
+    </div>
+    <div class="drawer-cta">
+      <a href="contact.html" class="btn btn-primary btn-full">Book Notary</a>
+      <a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge animate-fadeup"><i data-lucide="shield-check"></i> Certified & Licensed Notary</div>
+        <h1 class="hero-title animate-fadeup" style="animation-delay:0.1s">
+          Trusted Mobile Notary Services at Your <span class="gradient-text">Doorstep</span>
+        </h1>
+        <p class="hero-subtitle animate-fadeup" style="animation-delay:0.2s">Professional notarization whenever and wherever you need it. Fast, secure, and always available for your legal needs.</p>
+        <div class="hero-tags animate-fadeup" style="animation-delay:0.25s">
+          <span class="hero-tag"><i data-lucide="check-circle"></i> Loan Signing</span>
+          <span class="hero-tag"><i data-lucide="check-circle"></i> Legal Documents</span>
+          <span class="hero-tag"><i data-lucide="check-circle"></i> 24/7 Availability</span>
+        </div>
+        <div class="hero-ctas animate-fadeup" style="animation-delay:0.3s">
+          <a href="contact.html" class="btn btn-primary btn-lg"><i data-lucide="calendar-check"></i> Book Notary</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg"><i data-lucide="clock"></i> Schedule Appointment</a>
+        </div>
+        <div class="hero-trust animate-fadeup" style="animation-delay:0.4s">
+          <div class="trust-item">
+            <span class="number" data-counter data-target="500" data-suffix="+">0+</span>
+            <span class="label">Clients Served</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="number" data-counter data-target="10" data-suffix="+ Yrs">0</span>
+            <span class="label">Experience</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="number" data-counter data-target="99" data-suffix="%">0%</span>
+            <span class="label">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image animate-right" style="animation-delay:0.2s">
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Professional notary signing documents" loading="eager" />
+        </div>
+        <div class="hero-float-card card-bottom">
+          <div class="hero-card-icon"><i data-lucide="award"></i></div>
+          <div class="hero-card-text">
+            <span class="value">NNA Certified</span>
+            <span class="label">Notary Association</span>
+          </div>
+        </div>
+        <div class="hero-float-card card-top">
+          <div class="hero-card-icon"><i data-lucide="clock-4"></i></div>
+          <div class="hero-card-text">
+            <span class="value">24 / 7</span>
+            <span class="label">Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS BAR ═══════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar-grid">
+      <div class="stat-bar-item reveal">
+        <span class="stat-number" data-counter data-target="1200" data-suffix="+">1200+</span>
+        <div class="stat-label">Documents Notarized</div>
+      </div>
+      <div class="stat-bar-item reveal delay-1">
+        <span class="stat-number" data-counter data-target="500" data-suffix="+">500+</span>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-bar-item reveal delay-2">
+        <span class="stat-number" data-counter data-target="10" data-suffix="+">10+</span>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-bar-item reveal delay-3">
+        <span class="stat-number" data-counter data-target="50" data-suffix=" mi">50 mi</span>
+        <div class="stat-label">Service Radius</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT PREVIEW ═══════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal-left">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=800&q=80" alt="Professional notary at work" loading="lazy" />
+        <div class="about-exp-badge">
+          <span class="years">10+</span>
+          <span class="years-label">Years of Trust</span>
+        </div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-badge"><i data-lucide="info"></i> About Us</div>
+        <h2>Your Trusted <span>Mobile Notary</span> Partner</h2>
+        <p>We bring professional notary services directly to your location — whether it's your home, office, hospital, or anywhere convenient for you. Our mission is to make notarization simple, fast, and accessible 24/7.</p>
+        <p>As a certified Loan Signing Agent and Notary Public, we specialize in real estate transactions, legal affidavits, and all document notarization needs with the utmost professionalism.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon"><i data-lucide="shield-check"></i></div>
+            <div class="about-feature-text">
+              <strong>NNA Certified Notary</strong>
+              <span>Fully certified and background-checked professional</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i data-lucide="map-pin"></i></div>
+            <div class="about-feature-text">
+              <strong>We Come to You</strong>
+              <span>Mobile service within 50-mile radius, no travel hassle</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i data-lucide="clock"></i></div>
+            <div class="about-feature-text">
+              <strong>24/7 Availability</strong>
+              <span>Evening, weekend, and emergency appointments available</span>
+            </div>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-primary"><i data-lucide="arrow-right"></i> Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES OVERVIEW ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="briefcase"></i> What We Offer</div>
+      <h2>Our <span>Notary Services</span></h2>
+      <p>Comprehensive notarization solutions tailored to your personal or business legal needs.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="service-icon"><i data-lucide="file-signature"></i></div>
+        <h3>Loan Signing Services</h3>
+        <p>Expert loan document signing agent for real estate closings, refinances, and mortgage transactions with precision and accuracy.</p>
+        <a href="services.html" class="service-link">Learn More <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="service-icon"><i data-lucide="car"></i></div>
+        <h3>Mobile Notary</h3>
+        <p>We travel to your home, office, hospital, or any convenient location to notarize your documents quickly and professionally.</p>
+        <a href="services.html" class="service-link">Learn More <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="service-icon"><i data-lucide="home"></i></div>
+        <h3>Real Estate Documents</h3>
+        <p>Title transfers, deeds, purchase agreements, and all real estate-related documents handled with expert care.</p>
+        <a href="services.html" class="service-link">Learn More <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal delay-4">
+        <div class="service-icon"><i data-lucide="scroll"></i></div>
+        <h3>Legal Affidavits</h3>
+        <p>Sworn statements, power of attorney, wills, trusts, and all legal affidavits notarized by a certified professional.</p>
+        <a href="services.html" class="service-link">Learn More <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="text-center mt-4 reveal">
+      <a href="services.html" class="btn btn-secondary"><i data-lucide="grid-3x3"></i> View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY CHOOSE US ═══════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="star"></i> Why Choose Us</div>
+      <h2>The <span>NotaryPro</span> Advantage</h2>
+      <p>We stand apart with our commitment to excellence, reliability, and client-first approach.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal delay-1">
+        <div class="benefit-icon"><i data-lucide="award"></i></div>
+        <h3>Certified & Experienced</h3>
+        <p>NNA certified with 10+ years of professional notary experience across diverse legal document types.</p>
+      </div>
+      <div class="benefit-card reveal delay-2">
+        <div class="benefit-icon"><i data-lucide="zap"></i></div>
+        <h3>Fast & Reliable</h3>
+        <p>Same-day and emergency appointments available. We arrive on time, every time — guaranteed.</p>
+      </div>
+      <div class="benefit-card reveal delay-3">
+        <div class="benefit-icon"><i data-lucide="calendar-clock"></i></div>
+        <h3>Flexible Scheduling</h3>
+        <p>Book morning, evening, or weekend appointments. We work around your schedule, not the other way around.</p>
+      </div>
+      <div class="benefit-card reveal delay-4">
+        <div class="benefit-icon"><i data-lucide="lock"></i></div>
+        <h3>Secure & Confidential</h3>
+        <p>Your documents and personal information are handled with the highest level of security and discretion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURED SERVICE ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="featured-service reveal">
+      <div class="featured-content">
+        <div class="featured-badge"><i data-lucide="star"></i> Featured Service</div>
+        <h2>Professional Loan Signing Agent</h2>
+        <p>As a certified Loan Signing Agent (LSA), we specialize in facilitating real estate closings, refinances, and home equity loans. We ensure every document is correctly signed and notarized, protecting both lenders and borrowers.</p>
+        <div class="featured-price">
+          <span class="from">Starting from</span>
+          <span class="price">$75</span>
+          <span class="period">per signing</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Now</a>
+          <a href="services.html" class="btn btn-ghost btn-lg"><i data-lucide="info"></i> Learn More</a>
+        </div>
+      </div>
+      <div class="featured-action">
+        <div class="featured-price-card">
+          <div class="stats">
+            <div class="stat"><i data-lucide="check-circle"></i> Same-day appointments</div>
+            <div class="stat"><i data-lucide="check-circle"></i> All lender packages</div>
+            <div class="stat"><i data-lucide="check-circle"></i> E-notary capable</div>
+            <div class="stat"><i data-lucide="check-circle"></i> NNA background checked</div>
+            <div class="stat"><i data-lucide="check-circle"></i> E&O insured</div>
+          </div>
+          <a href="contact.html" class="btn btn-accent btn-full"><i data-lucide="phone"></i> Call Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="message-square"></i> Testimonials</div>
+      <h2>What Our <span>Clients Say</span></h2>
+      <p>Trusted by hundreds of individuals, law firms, and real estate professionals.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">NotaryPro came to my home at 8 PM for an emergency document signing. Incredibly professional and thorough. Highly recommend for any notary needs!</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah M." class="testimonial-avatar" loading="lazy" />
+          <div>
+            <strong>Sarah Mitchell</strong>
+            <span>Home Buyer, Los Angeles</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">We use NotaryPro for all our real estate closings. Always on time, accurate, and our clients love the professional service. A true five-star experience.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="David R." class="testimonial-avatar" loading="lazy" />
+          <div>
+            <strong>David Rodriguez</strong>
+            <span>Real Estate Agent, Century 21</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Outstanding loan signing agent. Every document was perfectly executed. Our lender was impressed. Will definitely use NotaryPro for all future closings!</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Jennifer K." class="testimonial-avatar" loading="lazy" />
+          <div>
+            <strong>Jennifer Kim</strong>
+            <span>Attorney, Kim & Associates Law</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BANNER ═══════════ -->
+<div class="cta-banner">
+  <h2>Need a Notary <span style="color:var(--accent-light)">Today?</span></h2>
+  <p>Available 24/7 for emergency and same-day appointments. Call or book online now.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn btn-accent btn-lg"><i data-lucide="calendar-check"></i> Book Now</a>
+    <a href="tel:+15551234567" class="btn btn-ghost btn-lg"><i data-lucide="phone"></i> Call (555) 123-4567</a>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon"><i data-lucide="scale"></i></div>
+          <span class="logo-text">NotaryPro</span>
+        </div>
+        <p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="care-plans.html">Care Plans</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Client Login</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Loan Signing</a></li>
+          <li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li>
+          <li><a href="services.html">Legal Affidavits</a></li>
+          <li><a href="services.html">Power of Attorney</a></li>
+          <li><a href="care-plans.html">Business Plans</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div>
+        <div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div>
+        <div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Suite 100<br>Los Angeles, CA 90001</div>
+        <div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 — Always Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* ============================================================
+   NOTARY PRO — Login / Register Auth Styles
+   ============================================================ */
+
+.auth-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  padding: 60px 24px 40px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--primary-rgb),0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.auth-body::after {
+  content: '';
+  position: fixed;
+  bottom: -15%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth-toggles {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+[dir="rtl"] .auth-toggles { right: auto; left: 16px; }
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.auth-logo .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+[data-theme="dark"] .auth-logo .logo-text { color: var(--accent-light); }
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.auth-title h1 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 5px; }
+.auth-title p { font-size: 0.87rem; color: var(--text-muted); }
+
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] { accent-color: var(--primary); width: 15px; height: 15px; }
+.forgot-link { font-size: 0.84rem; font-weight: 600; color: var(--primary); transition: var(--transition-fast); }
+[data-theme="dark"] .forgot-link { color: var(--accent-light); }
+.forgot-link:hover { text-decoration: underline; }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.social-login-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.social-btn:hover { border-color: var(--primary); background: rgba(var(--primary-rgb),0.04); }
+.social-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+.social-btn .google-icon { color: #DB4437; }
+.social-btn .apple-icon { color: var(--text); }
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+.auth-footer a { color: var(--primary); font-weight: 600; transition: var(--transition-fast); }
+[data-theme="dark"] .auth-footer a { color: var(--accent-light); }
+.auth-footer a:hover { text-decoration: underline; }
+
+/* Register page extras */
+.auth-card.wide { max-width: 500px; }
+.auth-terms {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.6;
+}
+.auth-terms a { color: var(--primary); font-weight: 500; }
+[data-theme="dark"] .auth-terms a { color: var(--accent-light); }
+
+/* Input with prefix icon */
+.input-with-icon { position: relative; }
+.input-prefix-icon {
+  position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none;
+}
+.input-prefix-icon svg { width: 17px; height: 17px; }
+.input-with-icon .form-input { padding-left: 40px; }
+[dir="rtl"] .input-prefix-icon { left: auto; right: 13px; }
+[dir="rtl"] .input-with-icon .form-input { padding-left: 15px; padding-right: 40px; }
+
+@media (max-width: 480px) {
+  .auth-card { padding: 28px 22px; }
+  .social-login-grid { grid-template-columns: 1fr; }
+  .auth-body { padding: 56px 16px 32px; justify-content: flex-start; }
+}
