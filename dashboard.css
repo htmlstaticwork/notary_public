@@ -147,7 +147,7 @@
 }
 
 /* ── Dashboard Content ── */
-.dashboard-content { padding: 28px; flex: 1; }
+.dashboard-content { padding: 28px; flex: 1; overflow-x: hidden; max-width: 100%; }
 
 /* Welcome Banner */
 .welcome-banner {
@@ -155,6 +155,7 @@
   border-radius: var(--radius-lg); padding: 28px 32px;
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
   margin-bottom: 28px; position: relative; overflow: hidden;
+  width: 100%; box-sizing: border-box;
 }
 .welcome-banner::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; }
 .welcome-banner::after { content: ''; position: absolute; bottom: -60px; left: 100px; width: 160px; height: 160px; background: rgba(var(--accent-rgb),0.12); border-radius: 50%; }
@@ -164,7 +165,14 @@
 .welcome-action { position: relative; z-index: 1; }
 
 /* Metric Cards */
-.metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-bottom: 28px; }
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 28px;
+}
 .metric-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 22px 20px; display: flex; align-items: flex-start; gap: 14px;
@@ -188,14 +196,14 @@
 .metric-change svg { width: 13px; height: 13px; }
 
 /* Dashboard Grid */
-.dashboard-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; margin-bottom: 20px; }
+.dashboard-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; margin-bottom: 20px; width: 100%; box-sizing: border-box; }
 
 /* Appointment Cards in Dashboard */
 .d-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
 }
 .d-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-.d-card-header h3 { font-size: 0.97rem; font-weight: 700; }
+.d-card-header h3 { font-size: 0.97rem; font-weight: 700; color: var(--text); }
 .d-card-header a { font-size: 0.8rem; font-weight: 600; color: var(--primary); }
 [data-theme="dark"] .d-card-header a { color: var(--accent-light); }
 
@@ -295,8 +303,29 @@
   .welcome-banner { flex-direction: column; text-align: center; padding: 22px 20px; }
   .welcome-action .btn { width: 100%; }
   .dashboard-header { padding: 0 16px; }
+  .d-search-bar { display: none; }
+  .d-header-right { gap: 8px; }
+  .d-icon-btn { width: 32px; height: 32px; }
+  .d-icon-btn svg { width: 16px; height: 16px; }
+  .d-avatar { width: 32px; height: 32px; font-size: 0.8rem; }
 }
 @media (max-width: 480px) {
-  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .metrics-grid { grid-template-columns: 1fr; }
   .metric-info .metric-value { font-size: 1.4rem; }
+  .dashboard-content { padding: 12px; }
+  .welcome-banner { padding: 18px 16px; margin-bottom: 20px; }
+  .welcome-text h1 { font-size: 1.2rem; }
+  .d-card { padding: 16px; }
+  .metric-card { padding: 16px 14px; }
+  .appointment-item { padding: 10px 0; }
+  .appt-date { width: 40px; height: 40px; }
+  .appt-date .appt-day { font-size: 1rem; }
+  .activity-item, .notif-item { padding: 8px 0; }
+  .profile-large-avatar { width: 60px; height: 60px; font-size: 1.4rem; }
+  .profile-summary-header h3 { font-size: 0.9rem; }
+  .profile-stat .ps-value { font-size: 1rem; }
+  .d-header-left h2 { font-size: 0.95rem; }
+  .d-breadcrumb { font-size: 0.72rem; }
+  #documents .d-card-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  #documents .d-card-header a { align-self: flex-end; }
 }

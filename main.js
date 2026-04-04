@@ -175,20 +175,29 @@
   });
 
   /* ── 12. Dashboard Sidebar Toggle ── */
-  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarMenuToggle = document.getElementById('sidebar-menu-toggle');
+  const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
   const sidebar = document.querySelector('.sidebar');
   const sidebarOverlay = document.querySelector('.sidebar-overlay');
 
-  if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      sidebarOverlay?.classList.toggle('open');
-    });
-    sidebarOverlay?.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('open');
-    });
-  }
+  const toggleSidebar = () => {
+    sidebar.classList.toggle('open');
+    sidebarOverlay?.classList.toggle('open');
+  };
+
+  const openSidebar = () => {
+    sidebar.classList.add('open');
+    sidebarOverlay?.classList.add('open');
+  };
+
+  const closeSidebar = () => {
+    sidebar.classList.remove('open');
+    sidebarOverlay?.classList.remove('open');
+  };
+
+  sidebarMenuToggle?.addEventListener('click', toggleSidebar);
+  sidebarCloseBtn?.addEventListener('click', closeSidebar);
+  sidebarOverlay?.addEventListener('click', closeSidebar);
 
   /* ── 13. Smooth Anchor Scroll ── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
