@@ -5,6 +5,7 @@
   <title>Care Plans — NotaryPro</title>
   <meta name="description" content="NotaryPro Care Plans for businesses, law firms, and real estate professionals. Monthly notary subscriptions with priority access." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='M7 21h10'/><path d='M12 3v18'/><path d='M3 7h2c2 0 4-1.34 4-4V3h8v.006A6.42 6.42 0 0 1 18.5 7H21'/></svg>" type="image/svg+xml">
   <style>
     .included-features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
     .inc-feature { display:flex; align-items:flex-start; gap:13px; padding:20px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); }
@@ -18,6 +19,40 @@
     .companies-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; padding:20px 0; }
     .company-tag { display:flex; align-items:center; gap:8px; color:var(--text-muted); font-size:0.87rem; font-weight:600; opacity:0.7; }
     .company-tag svg { width:20px; height:20px; }
+    
+    /* Responsive for testimonials grid */
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .testimonial-card:nth-child(3) {
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+    
+    /* Responsive for plans grid */
+    @media (max-width: 768px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .plan-card:nth-child(3) {
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
   </style>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script src="main.js" defer></script>
@@ -218,7 +253,7 @@
   <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div class="footer-col"><h4>Plans</h4><ul><li><a href="care-plans.html">Basic Plan</a></li><li><a href="care-plans.html">Business Plan</a></li><li><a href="care-plans.html">Enterprise Plan</a></li><li><a href="contact.html">Custom Quote</a></li></ul></div>
   <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles CA</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
-</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+</div></div><div class="footer-bottom"><p> 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></footer>
 <button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
 </body>
 </html>

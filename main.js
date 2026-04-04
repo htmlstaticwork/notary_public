@@ -231,6 +231,13 @@
   });
 
   /* ── 16. Init Lucide Icons ── */
-  if (window.lucide) lucide.createIcons();
+  if (window.lucide) {
+    lucide.createIcons();
+    // Ensure footer icons are created
+    const footerIcons = document.querySelectorAll('.social-links [data-lucide], .footer-contact-item [data-lucide]');
+    if (footerIcons.length > 0) {
+      setTimeout(() => lucide.createIcons(), 100);
+    }
+  }
 
 })();

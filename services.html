@@ -5,6 +5,7 @@
   <title>Services — NotaryPro</title>
   <meta name="description" content="Explore our full range of notary services including loan signing, mobile notary, real estate documents, legal affidavits, and more." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='M7 21h10'/><path d='M12 3v18'/><path d='M3 7h2c2 0 4-1.34 4-4V3h8v.006A6.42 6.42 0 0 1 18.5 7H21'/></svg>" type="image/svg+xml">
   <style>
     .services-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; }
     .service-detail-card {
@@ -12,7 +13,33 @@
       overflow:hidden; transition:var(--transition);
     }
     .service-detail-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
-    .service-detail-card img { width:100%; height:200px; object-fit:cover; }
+    .service-detail-card img { width:100%; height:200px; object-fit:cover; display:block; }
+    
+    /* Responsive for service detail cards */
+    @media (max-width: 768px) {
+      .services-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .service-detail-card:nth-child(3) {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+      .service-detail-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .services-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .service-detail-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
     .service-detail-content { padding:24px; }
     .service-detail-content h3 { font-size:1.1rem; font-weight:800; margin-bottom:8px; }
     .service-detail-content p { font-size:0.86rem; color:var(--text-secondary); line-height:1.75; margin-bottom:16px; }
@@ -108,7 +135,7 @@
     </div>
     <div class="services-detail-grid">
       <div class="service-detail-card reveal delay-1">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Loan signing" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="Loan signing" loading="lazy" />
         <div class="service-detail-content">
           <h3>Loan Signing Agent Services</h3>
           <p>As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time to the title company or lender.</p>
@@ -116,7 +143,7 @@
             <div class="s-feature"><i data-lucide="check"></i> Purchase loan signings</div>
             <div class="s-feature"><i data-lucide="check"></i> Refinance packages</div>
             <div class="s-feature"><i data-lucide="check"></i> HELOC & home equity</div>
-            <div class="s-feature"><i data-lucide="check"></i> Reverse mortgage</div>
+        
           </div>
           <div class="service-detail-price">
             <span class="s-from">From</span><span class="s-price">$75</span><span style="font-size:0.82rem;color:var(--text-muted)">per signing</span>
@@ -125,7 +152,7 @@
         </div>
       </div>
       <div class="service-detail-card reveal delay-2" id="mobile-notary">
-        <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=600&q=80" alt="Mobile notary" loading="lazy" />
+        <img src="https://i.pinimg.com/736x/df/9d/fb/df9dfb2951cd5417ff8095439133c6f9.jpg" alt="Mobile notary" loading="lazy" />
         <div class="service-detail-content">
           <h3>Mobile Notary Services</h3>
           <p>We eliminate the inconvenience of finding a notary. We come directly to you — wherever you are — ready with all necessary supplies to notarize your documents on the spot.</p>
@@ -240,7 +267,7 @@
   <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li><li><a href="care-plans.html">Business Plans</a></li></ul></div>
   <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles CA</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
-</div></div><div class="footer-bottom"><p>© 2024 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p></div></footer>
+</div></div><div class="footer-bottom"><p> 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></footer>
 <button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
 </body>
 </html>
