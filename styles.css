@@ -2509,6 +2509,15 @@ textarea.form-input {
     display: flex;
   }
 
+  .drawer-toggles {
+    display: none;
+  }
+
+  .drawer-links li a i,
+  .drawer-links li a svg {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
     align-self: center;
