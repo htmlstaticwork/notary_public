@@ -47,6 +47,10 @@
 .sidebar-toggle-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 .sidebar-toggle-btn svg { width: 15px; height: 15px; }
 
+@media (min-width: 1025px) {
+  .sidebar-toggle-btn { display: none; }
+}
+
 .sidebar-nav { flex: 1; padding: 14px 0; }
 .nav-section-label {
   padding: 10px 22px 4px;
@@ -136,6 +140,10 @@
 }
 .d-icon-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 .d-icon-btn svg { width: 17px; height: 17px; }
+
+@media (min-width: 1025px) {
+  #sidebar-menu-toggle { display: none; }
+}
 .d-notif-dot {
   position: absolute; top: 6px; right: 6px; width: 8px; height: 8px;
   background: #e53e3e; border-radius: 50%; border: 2px solid var(--bg-card);
@@ -204,8 +212,36 @@
 }
 .d-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
 .d-card-header h3 { font-size: 0.97rem; font-weight: 700; color: var(--text); }
-.d-card-header a { font-size: 0.8rem; font-weight: 600; color: var(--primary); }
-[data-theme="dark"] .d-card-header a { color: var(--accent-light); }
+.d-card-header a:not(.btn) { font-size: 0.8rem; font-weight: 600; color: var(--primary); transition: var(--transition-fast); }
+.d-card-header a:hover { 
+  color: var(--primary-light); 
+  text-decoration: none; 
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+[data-theme="dark"] .d-card-header a:hover { color: var(--accent); opacity: 1; }
+
+.d-icon-btn, .d-avatar, .sidebar-profile, .sidebar-logout, .appt-date, .activity-dot, .notif-icon, .sidebar-toggle-btn {
+  transition: var(--transition);
+}
+
+.sidebar-logout a { transition: var(--transition-fast); }
+.sidebar-logout:hover a { color: #f56565 !important; }
+
+.doc-card {
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; text-align: center; cursor: pointer; transition: var(--transition);
+  min-height: 120px; display: flex; flex-direction: column; justify-content: center;
+}
+.doc-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+[data-theme="dark"] .doc-card:hover { border-color: var(--accent); }
+
+.doc-card-upload {
+  background: var(--bg-secondary); border: 1px dashed var(--border); border-radius: var(--radius);
+  padding: 16px; text-align: center; cursor: pointer; transition: var(--transition);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px;
+}
+.doc-card-upload:hover { border-color: var(--accent); border-style: solid; background: rgba(var(--accent-rgb), 0.05); }
 
 .appointment-item {
   display: flex; align-items: center; gap: 14px; padding: 13px 0;

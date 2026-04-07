@@ -7,99 +7,84 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='M7 21h10'/><path d='M12 3v18'/><path d='M3 7h2c2 0 4-1.34 4-4V3h8v.006A6.42 6.42 0 0 1 18.5 7H21'/></svg>" type="image/svg+xml">
   <style>
-    .cert-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; text-align:center; transition:var(--transition); }
-    .cert-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
-    .cert-icon { width:56px; height:56px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; color:white; }
-    .cert-icon svg { width:24px; height:24px; }
-    .cert-card h3 { font-size:0.92rem; font-weight:700; margin-bottom:5px; }
-    .cert-card p { font-size:0.8rem; color:var(--text-muted); }
-    .value-card { display:flex; align-items:flex-start; gap:14px; padding:22px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); }
-    .value-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
-    .value-card-icon { width:44px; height:44px; background:rgba(var(--accent-rgb),0.1); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--accent-dark); flex-shrink:0; }
-    [data-theme="dark"] .value-card-icon { color:var(--accent-light); }
-    .value-card-icon svg { width:20px; height:20px; }
-    .value-card h4 { font-size:0.92rem; font-weight:700; margin-bottom:4px; }
-    .value-card p { font-size:0.82rem; color:var(--text-secondary); line-height:1.65; }
+    /* Base Card Styles */
+    .cert-card { 
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); 
+      padding: 24px; text-align: center; transition: var(--transition); 
+      display: flex; flex-direction: column; height: 100%; 
+    }
+    .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .cert-icon { 
+      width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); 
+      border-radius: var(--radius); display: flex; align-items: center; justify-content: center; 
+      margin: 0 auto 16px; color: white; flex-shrink: 0; 
+    }
+    .cert-icon svg { width: 24px; height: 24px; }
+    .cert-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .cert-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
     
-    /* Responsive for about section */
-    @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-      .about-content h2 {
-        text-align: center;
-      }
+    .value-card { 
+      display: flex; align-items: flex-start; gap: 16px; padding: 24px; 
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); 
+      transition: var(--transition); height: 100%; 
     }
-    @media (max-width: 480px) {
-      .about-grid {
-        gap: 24px;
-      }
+    .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .value-card-icon { 
+      width: 48px; height: 48px; background: rgba(var(--accent-rgb),0.1); 
+      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; 
+      color: var(--accent-dark); flex-shrink: 0; 
+    }
+    [data-theme="dark"] .value-card-icon { color: var(--accent-light); }
+    .value-card-icon svg { width: 22px; height: 22px; }
+    .value-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .value-card p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; }
+    .value-card div { flex: 1; }
+    
+    /* Grid Layouts */
+    .about-cert-grid, .about-values-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 24px; 
+      align-items: stretch;
     }
     
-    /* Responsive for credentials section */
-    @media (min-width: 769px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"] {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 18px;
-        align-items: stretch;
-      }
-    }
-    @media (max-width: 768px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"] {
+    /* Responsive Adjustments */
+    @media (max-width: 1100px) {
+      .about-cert-grid, .about-values-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .about-content h2 { text-align: center; }
+      .about-content .btn { margin: 0 auto; }
+    }
+    @media (max-width: 650px) {
+      .about-cert-grid, .about-values-grid {
+        grid-template-columns: 1fr;
         gap: 16px;
       }
-    }
-    @media (max-width: 480px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"] {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-    }
-    
-    /* Responsive for values section */
-    @media (min-width: 769px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"] {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-        align-items: stretch;
-      }
-    }
-    @media (max-width: 768px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"] {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-    }
-    @media (max-width: 480px) {
-      div[style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"] {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
+      .value-card { padding: 20px; }
+      .cert-card { padding: 20px; }
     }
     
     /* Responsive for process section */
-    @media (min-width: 769px) {
-      div[style*="grid-template-columns:1fr 1fr;gap:72px;align-items:start;"] {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 72px;
-        align-items: center;
-      }
+    .about-process-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 72px; 
+      align-items: center; 
     }
-    @media (max-width: 768px) {
-      div[style*="grid-template-columns:1fr 1fr;gap:72px;align-items:start;"] {
+    
+    @media (max-width: 900px) {
+      .about-process-grid {
         grid-template-columns: 1fr;
         gap: 48px;
         text-align: center;
       }
     }
     @media (max-width: 480px) {
-      div[style*="grid-template-columns:1fr 1fr;gap:72px;align-items:start;"] {
+      .about-process-grid {
         gap: 32px;
       }
     }
@@ -124,11 +109,12 @@
   <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
   <ul class="nav-links">
     <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
-    <li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
-    <li><a href="about.html" class="active">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="services.html">Services</a></li><li><a href="about.html" class="active">About</a></li>
+    <li><a href="care-plans.html">Care Plans</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="login.html">Login</a></li>
   </ul>
   <div class="nav-actions">
-    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-ctas"><a href="login.html" class="btn btn-secondary btn-sm">Login</a><a href="register.html" class="btn btn-primary btn-sm">Sign Up</a></div>
     <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
   </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -137,11 +123,12 @@
   <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
   <ul class="drawer-links">
     <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
-    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
-    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="about.html"><i data-lucide="user"></i> About</a></li>
+    <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    <li><a href="login.html"><i data-lucide="log-in"></i> Login</a></li>
   </ul>
   <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
-  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+  <div class="drawer-cta"><a href="register.html" class="btn btn-primary btn-full">Sign Up</a><a href="login.html" class="btn btn-secondary btn-full">Login</a></div>
 </div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
 </header>
@@ -194,7 +181,7 @@
       <h2>Certifications & <span>Experience</span></h2>
       <p>Fully credentialed and continuously trained to serve you with the highest professional standards.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;">
+    <div class="about-cert-grid">
       <div class="cert-card reveal delay-1"><div class="cert-icon"><i data-lucide="award"></i></div><h3>NNA Certified</h3><p>National Notary Association certified professional</p></div>
       <div class="cert-card reveal delay-2"><div class="cert-icon"><i data-lucide="shield-check"></i></div><h3>Background Checked</h3><p>Clear NNA background screening — verified identity</p></div>
       <div class="cert-card reveal delay-3"><div class="cert-icon"><i data-lucide="scroll"></i></div><h3>State Commissioned</h3><p>California Secretary of State commissioned notary</p></div>
@@ -213,7 +200,7 @@
       <h2>What We <span>Stand For</span></h2>
       <p>Our core values guide every appointment, every document, and every client interaction.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+    <div class="about-values-grid">
       <div class="value-card reveal delay-1"><div class="value-card-icon"><i data-lucide="target"></i></div><div><h4>Our Mission</h4><p>To make professional notary services universally accessible — fast, mobile, and available 24/7 for every person and business that needs it.</p></div></div>
       <div class="value-card reveal delay-2"><div class="value-card-icon"><i data-lucide="eye"></i></div><div><h4>Our Vision</h4><p>To be the most trusted mobile notary service in California, known for our reliability, professionalism, and client-first approach.</p></div></div>
       <div class="value-card reveal delay-3"><div class="value-card-icon"><i data-lucide="handshake"></i></div><div><h4>Integrity</h4><p>We handle every document and every client with complete honesty, transparency, and confidentiality.</p></div></div>
@@ -227,7 +214,7 @@
 <!-- WORK PROCESS -->
 <section class="section section-alt">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <div class="about-process-grid">
       <div class="reveal-left">
         <div class="section-badge"><i data-lucide="list-ordered"></i> Our Process</div>
         <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;margin-bottom:14px;line-height:1.2;">How We <span style="color:var(--accent)">Work</span></h2>
@@ -257,13 +244,55 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer"><div class="container"><div class="footer-grid">
-  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary services, 24/7 availability.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
-  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li></ul></div>
-  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> Los Angeles, CA 90001</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
-</div></div><div class="footer-bottom"><p> 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></footer>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon"><i data-lucide="scale"></i></div>
+          <span class="logo-text">NotaryPro</span>
+        </div>
+        <p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="home2.html">Home 2</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="care-plans.html">Care Plans</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Loan Signing</a></li>
+          <li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li>
+          <li><a href="services.html">Legal Affidavits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div>
+        <div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div>
+        <div class="footer-contact-item"><i data-lucide="map-pin"></i> Los Angeles, CA 90001</div>
+        <div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 — Always Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
+</footer>
 <button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
 </body>
 </html>

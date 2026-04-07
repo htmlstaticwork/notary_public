@@ -99,49 +99,54 @@
     }
     
     /* Mobile responsive for advantages */
-    @media (max-width: 768px) {
-      div[style*="grid-template-columns:1fr 1fr"] {
+    @media (max-width: 1024px) {
+      .h2-advantages-grid {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
-        text-align: center !important;
       }
-      .adv-benefit { flex-direction: column; align-items: center; text-align: center; }
+      .adv-benefit { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 30px 24px;
+      }
     }
     @media (max-width: 480px) {
-      div[style*="grid-template-columns:1fr 1fr"] {
-        gap: 24px !important;
+      .h2-advantages-grid {
+        gap: 20px !important;
       }
     }
     
     /* Mobile responsive for case showcase */
-    @media (max-width: 768px) {
-      div[style*="grid-template-columns:repeat(3,1fr)"] {
+    @media (max-width: 1024px) {
+      .h2-showcase-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 18px !important;
+        gap: 20px !important;
+      }
+      .showcase-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 500px;
+        margin: 0 auto;
       }
     }
-    @media (max-width: 480px) {
-      div[style*="grid-template-columns:repeat(3,1fr)"] {
+    @media (max-width: 768px) {
+      .h2-showcase-grid {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
+      }
+      .showcase-card:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+        margin: 0;
       }
     }
     
     /* Mobile responsive for care plan buttons */
+    .care-plan-ctas { display: flex; gap: 12px; flex-wrap: wrap; max-width: 450px; }
+    .care-plan-ctas .btn { flex: 1; min-width: 180px; justify-content: center; }
     @media (max-width: 768px) {
-      div[style*="display:flex;gap:10px;flex-wrap:wrap;"] {
-        flex-direction: column !important;
-        gap: 12px !important;
-      }
-      div[style*="display:flex;gap:10px;flex-wrap:wrap;"] .btn {
-        width: 100% !important;
-        justify-content: center !important;
-      }
-    }
-    @media (max-width: 480px) {
-      div[style*="display:flex;gap:10px;flex-wrap:wrap;"] {
-        gap: 10px !important;
-      }
+      .care-plan-ctas { flex-direction: column; max-width: 100%; }
+      .care-plan-ctas .btn { width: 100%; min-width: 0; }
     }
 
     /* Case Showcase */
@@ -210,15 +215,16 @@
       <li><a href="index.html">Home 1</a></li>
       <li><a href="home2.html" class="active">Home 2</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="care-plans.html">Care Plans</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="care-plans.html">Care Plans</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="login.html">Login</a></li>
     </ul>
     <div class="nav-actions">
       <div class="nav-ctas">
-        <a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a>
-        <a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a>
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
       </div>
       <div class="nav-toggles">
         <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
@@ -236,18 +242,19 @@
       <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li>
       <li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
       <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li>
-      <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
       <li><a href="about.html"><i data-lucide="user"></i> About</a></li>
+      <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
       <li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li>
       <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+      <li><a href="login.html"><i data-lucide="log-in"></i> Login</a></li>
     </ul>
     <div class="drawer-toggles">
       <button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button>
       <button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button>
     </div>
     <div class="drawer-cta">
-      <a href="contact.html" class="btn btn-primary btn-full">Book Notary</a>
-      <a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a>
+      <a href="register.html" class="btn btn-primary btn-full">Sign Up</a>
+      <a href="login.html" class="btn btn-secondary btn-full">Login</a>
     </div>
   </div>
   <div class="drawer-overlay" id="drawer-overlay"></div>
@@ -328,19 +335,31 @@
       <h2>Simple <span>3-Step</span> Process</h2>
       <p>Getting your documents notarized has never been easier or faster.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;">
+    <div class="h2-process-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;">
       <style>
+        @media (max-width: 1024px) {
+          .h2-process-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+          }
+          .process-step-h2:nth-child(3) {
+            grid-column: span 2;
+            max-width: 480px;
+            margin: 0 auto;
+          }
+          .process-step-h2:nth-child(2) .step-arrow { display: none; }
+        }
         @media (max-width: 768px) {
-          div[style*="grid-template-columns:repeat(3,1fr)"] {
+          .h2-process-grid {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
           }
-        }
-        @media (max-width: 480px) {
-          div[style*="grid-template-columns:repeat(3,1fr)"] {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
+          .process-step-h2:nth-child(3) {
+            grid-column: auto;
+            max-width: none;
+            margin: 0;
           }
+          .process-step-h2 .step-arrow { display: none; }
         }
       </style>
       <div class="process-step-h2 reveal delay-1" style="position:relative;">
@@ -367,20 +386,7 @@
 <!-- ADVANCED BENEFITS -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-      <style>
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns:1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-          }
-        }
-        @media (max-width: 480px) {
-          div[style*="grid-template-columns:1fr 1fr"] {
-            gap: 24px !important;
-          }
-        }
-      </style>
+    <div class="h2-advantages-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
       <div class="reveal-left">
         <div class="section-badge"><i data-lucide="shield-check"></i> Our Advantages</div>
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;margin-bottom:14px;line-height:1.2;">Why Professionals <span style="color:var(--accent);">Choose Us</span> Every Time</h2>
@@ -417,21 +423,7 @@
       <h2>Real Scenarios, <span>Real Results</span></h2>
       <p>See how we serve clients across different notary scenarios every day.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
-      <style>
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns:repeat(3,1fr)"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 18px !important;
-          }
-        }
-        @media (max-width: 480px) {
-          div[style*="grid-template-columns:repeat(3,1fr)"] {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-          }
-        }
-      </style>
+    <div class="h2-showcase-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
       <div class="showcase-card reveal delay-1">
         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Loan signing" loading="lazy" />
         <div class="showcase-content">
@@ -473,24 +465,7 @@
       <div>
         <h3>Business Care Plan — Unlimited Signings</h3>
         <p>Perfect for law firms, real estate agencies, title companies, and financial institutions with regular notarization needs. Get priority scheduling, dedicated service, and significant cost savings with our monthly subscription plans.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <style>
-        @media (max-width: 768px) {
-          div[style*="display:flex;gap:10px;flex-wrap:wrap;"] {
-            flex-direction: column !important;
-            gap: 12px !important;
-          }
-          div[style*="display:flex;gap:10px;flex-wrap:wrap;"] .btn {
-            width: 100% !important;
-            justify-content: center !important;
-          }
-        }
-        @media (max-width: 480px) {
-          div[style*="display:flex;gap:10px;flex-wrap:wrap;"] {
-            gap: 10px !important;
-          }
-        }
-      </style>
+        <div class="care-plan-ctas">
           <a href="care-plans.html" class="btn btn-primary"><i data-lucide="arrow-right"></i> View Plans</a>
           <a href="contact.html" class="btn btn-secondary">Get Custom Quote</a>
         </div>
@@ -514,7 +489,10 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div>
+        <div class="footer-logo">
+          <div class="logo-icon"><i data-lucide="scale"></i></div>
+          <span class="logo-text">NotaryPro</span>
+        </div>
         <p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p>
         <div class="social-links">
           <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
@@ -526,17 +504,23 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
-          <li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
-          <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="home2.html">Home 2</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="care-plans.html">Care Plans</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li>
-          <li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li>
-          <li><a href="services.html">Power of Attorney</a></li><li><a href="care-plans.html">Business Plans</a></li>
+          <li><a href="services.html">Loan Signing</a></li>
+          <li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li>
+          <li><a href="services.html">Legal Affidavits</a></li>
+          <li><a href="services.html">Power of Attorney</a></li>
+          <li><a href="care-plans.html">Business Plans</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -548,7 +532,9 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom"><p>© 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div>
+  <div class="footer-bottom">
+    <p>© 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
 </footer>
 <button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
 </body>

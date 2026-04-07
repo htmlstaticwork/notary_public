@@ -20,10 +20,10 @@
 
 <div class="auth-card wide">
   <!-- Logo -->
-  <div class="auth-logo">
+  <a href="index.html" class="auth-logo" style="text-decoration:none;">
     <div class="logo-icon"><i data-lucide="scale"></i></div>
     <span class="logo-text">NotaryPro</span>
-  </div>
+  </a>
 
   <div class="auth-title">
     <h1>Create Account</h1>
@@ -31,14 +31,7 @@
   </div>
 
   <form id="register-form" novalidate>
-    <!-- Full Name -->
-    <div class="form-group">
-      <label class="form-label" for="reg-name">Full Name</label>
-      <div class="input-with-icon">
-        <span class="input-prefix-icon"><i data-lucide="user"></i></span>
-        <input class="form-input" id="reg-name" type="text" placeholder="John Smith" required autocomplete="name" />
-      </div>
-    </div>
+
 
     <!-- Email -->
     <div class="form-group">
@@ -84,9 +77,9 @@
 
     <!-- Terms checkbox -->
     <div class="form-group">
-      <label class="checkbox-label" style="align-items:flex-start;gap:9px;">
-        <input type="checkbox" required style="margin-top:2px;" />
-        <span><p> 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p> and <a href="#" style="color:var(--primary);font-weight:600;">Privacy Policy</a></span>
+      <label class="checkbox-label" style="align-items: center; justify-content: center; text-align: center; margin: 10px 0 20px;">
+        <input type="checkbox" required />
+        <span class="auth-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
       </label>
     </div>
 

@@ -11,9 +11,10 @@
     .service-detail-card {
       background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
       overflow:hidden; transition:var(--transition);
+      display: flex; flex-direction: column; height: 100%;
     }
     .service-detail-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
-    .service-detail-card img { width:100%; height:200px; object-fit:cover; display:block; }
+    .service-detail-card img { width:100%; height:200px; object-fit:cover; display:block; flex-shrink: 0; }
     
     /* Responsive for service detail cards */
     @media (max-width: 768px) {
@@ -23,7 +24,18 @@
       }
       .service-detail-card:nth-child(3) {
         grid-column: 1 / -1;
+        max-width: 800px;
+        margin: 0 auto;
         text-align: center;
+      }
+      .service-detail-card:nth-child(3) .service-detail-content {
+        align-items: center;
+      }
+      .service-detail-card:nth-child(3) .service-detail-features {
+        align-items: center;
+      }
+      .service-detail-card:nth-child(3) .service-detail-price {
+        justify-content: center;
       }
       .service-detail-card .btn {
         width: 100%;
@@ -40,7 +52,7 @@
         justify-content: center;
       }
     }
-    .service-detail-content { padding:24px; }
+    .service-detail-content { padding:24px; display: flex; flex-direction: column; flex-grow: 1; }
     .service-detail-content h3 { font-size:1.1rem; font-weight:800; margin-bottom:8px; }
     .service-detail-content p { font-size:0.86rem; color:var(--text-secondary); line-height:1.75; margin-bottom:16px; }
     .service-detail-features { display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
@@ -73,11 +85,12 @@
   <div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div>
   <ul class="nav-links">
     <li><a href="index.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li>
-    <li><a href="services.html" class="active">Services</a></li><li><a href="care-plans.html">Care Plans</a></li>
-    <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="services.html" class="active">Services</a></li><li><a href="about.html">About</a></li>
+    <li><a href="care-plans.html">Care Plans</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="login.html">Login</a></li>
   </ul>
   <div class="nav-actions">
-    <div class="nav-ctas"><a href="contact.html" class="btn btn-secondary btn-sm">Schedule Appointment</a><a href="contact.html" class="btn btn-primary btn-sm">Book Notary</a></div>
+    <div class="nav-ctas"><a href="login.html" class="btn btn-secondary btn-sm">Login</a><a href="register.html" class="btn btn-primary btn-sm">Sign Up</a></div>
     <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
   </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -86,11 +99,12 @@
   <div class="drawer-header"><div class="nav-logo"><a href="index.html"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></a></div><button class="drawer-close" id="drawer-close">✕</button></div>
   <ul class="drawer-links">
     <li><a href="index.html"><i data-lucide="home"></i> Home 1</a></li><li><a href="home2.html"><i data-lucide="sparkles"></i> Home 2</a></li>
-    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li>
-    <li><a href="about.html"><i data-lucide="user"></i> About</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="about.html"><i data-lucide="user"></i> About</a></li>
+    <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+    <li><a href="login.html"><i data-lucide="log-in"></i> Login</a></li>
   </ul>
   <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
-  <div class="drawer-cta"><a href="contact.html" class="btn btn-primary btn-full">Book Notary</a><a href="contact.html" class="btn btn-secondary btn-full">Schedule Appointment</a></div>
+  <div class="drawer-cta"><a href="register.html" class="btn btn-primary btn-full">Sign Up</a><a href="login.html" class="btn btn-secondary btn-full">Login</a></div>
 </div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
 </header>
@@ -261,13 +275,55 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer"><div class="container"><div class="footer-grid">
-  <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i data-lucide="scale"></i></div><span class="logo-text">NotaryPro</span></div><p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="twitter"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="instagram"></i></a></div></div>
-  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="care-plans.html">Care Plans</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Loan Signing</a></li><li><a href="services.html">Mobile Notary</a></li><li><a href="services.html">Real Estate Docs</a></li><li><a href="services.html">Legal Affidavits</a></li><li><a href="care-plans.html">Business Plans</a></li></ul></div>
-  <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div><div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div><div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles CA</div><div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 Available</div></div>
-</div></div><div class="footer-bottom"><p> 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></footer>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon"><i data-lucide="scale"></i></div>
+          <span class="logo-text">NotaryPro</span>
+        </div>
+        <p>Professional mobile notary and loan signing agent services. We come to you — 24/7, always on time, always certified.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="care-plans.html">Care Plans</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Loan Signing</a></li>
+          <li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li>
+          <li><a href="services.html">Legal Affidavits</a></li>
+          <li><a href="care-plans.html">Business Plans</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div>
+        <div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div>
+        <div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles, CA</div>
+        <div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 — Always Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NotaryPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
+</footer>
 <button class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
 </body>
 </html>

@@ -10,12 +10,15 @@
   const applyTheme = (t) => {
     document.documentElement.setAttribute('data-theme', t);
     localStorage.setItem('np-theme', t);
+    
+    // Update theme toggle icons
     document.querySelectorAll('#theme-toggle, #theme-toggle-m, #theme-toggle-auth').forEach(btn => {
-      const icon = btn.querySelector('svg use') || btn.querySelector('i[data-lucide]');
-      if (btn.querySelector('[data-lucide]')) {
-        btn.querySelector('[data-lucide]').setAttribute('data-lucide', t === 'dark' ? 'sun' : 'moon');
+      const icon = btn.querySelector('i[data-lucide], svg[data-lucide]');
+      if (icon) {
+        icon.setAttribute('data-lucide', t === 'dark' ? 'sun' : 'moon');
       }
     });
+
     if (window.lucide) lucide.createIcons();
   };
   applyTheme(getTheme());
@@ -240,13 +243,13 @@
   });
 
   /* ── 16. Init Lucide Icons ── */
-  if (window.lucide) {
-    lucide.createIcons();
-    // Ensure footer icons are created
-    const footerIcons = document.querySelectorAll('.social-links [data-lucide], .footer-contact-item [data-lucide]');
-    if (footerIcons.length > 0) {
-      setTimeout(() => lucide.createIcons(), 100);
+  const initIcons = () => {
+    if (window.lucide) {
+      lucide.createIcons();
     }
-  }
+  };
+
+  // Initial call
+  initIcons();
 
 })();

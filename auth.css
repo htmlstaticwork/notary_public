@@ -148,8 +148,10 @@
   text-align: center;
   line-height: 1.6;
 }
-.auth-terms a { color: var(--primary); font-weight: 500; }
+.auth-terms a { color: var(--primary); font-weight: 500; transition: var(--transition-fast); display: inline-block; }
+.auth-terms a:hover { color: var(--primary-light); text-decoration: none; transform: translateY(-1px); }
 [data-theme="dark"] .auth-terms a { color: var(--accent-light); }
+[data-theme="dark"] .auth-terms a:hover { color: var(--accent); }
 
 /* Input with prefix icon */
 .input-with-icon { position: relative; }
