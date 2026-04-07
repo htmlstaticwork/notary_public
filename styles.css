@@ -727,7 +727,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 }
 
 /* Responsive for contact page */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -735,6 +735,11 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   }
   .contact-info {
     align-items: center;
+  }
+  .contact-info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 .contact-info-item:first-child { padding-top: 0; }
@@ -801,9 +806,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .social-links { justify-content: center; }
   .footer-col h4::after { left: 50%; transform: translateX(-50%); }
   .footer-contact-item { justify-content: center; }
-  .testimonials-grid { grid-template-columns: 1fr 1fr; }
-  .testimonial-card:nth-child(3) { grid-column: span 2; max-width: 800px; margin: 0 auto; text-align: center; }
-  .testimonial-card:nth-child(3) .testimonial-stars, .testimonial-card:nth-child(3) .testimonial-author { justify-content: center; }
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testimonial-card { height: 100%; display: flex; flex-direction: column; }
 
   /* Hero Section Reset for Tablet */
   .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
@@ -813,12 +817,12 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .hero-ctas .btn { flex: 1; max-width: 220px; min-width: 200px; justify-content: center; }
   .hero-trust { justify-content: center; }
   .hero-tags { justify-content: center; }
+  .hero-float-card { display: flex; position: static; margin: 10px auto; width: 240px; justify-content: flex-start; }
+  .hero-float-card.card-bottom, .hero-float-card.card-top { position: static; bottom: auto; left: auto; right: auto; animation: none; }
 }
 @media (max-width: 768px) {
   :root { --header-h: 64px; }
   .nav-links { display: none; }
-  .hero-float-card { display: flex; position: static; margin-top: 20px; }
-  .hero-float-card.card-bottom, .hero-float-card.card-top { position: static; bottom: auto; left: auto; right: auto; margin: 10px; }
   .hero-image-wrapper { margin-bottom: 20px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-content { text-align: center; }
