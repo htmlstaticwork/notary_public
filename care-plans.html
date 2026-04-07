@@ -51,13 +51,18 @@
     }
     
     /* Responsive for plans grid */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .plans-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 24px;
+        max-width: 500px;
+        margin: 0 auto;
       }
-      .plan-card:nth-child(3) {
+      .plan-card {
         text-align: center;
+      }
+      .plan-feature {
+        justify-content: center;
       }
     }
     @media (max-width: 480px) {
@@ -260,6 +265,7 @@
   </div>
 </div>
 
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -285,22 +291,25 @@
           <li><a href="about.html">About</a></li>
           <li><a href="care-plans.html">Care Plans</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Client Login</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Plans</h4>
+        <h4>Services</h4>
         <ul>
-          <li><a href="care-plans.html">Basic Plan</a></li>
-          <li><a href="care-plans.html">Business Plan</a></li>
-          <li><a href="care-plans.html">Enterprise Plan</a></li>
-          <li><a href="contact.html">Custom Quote</a></li>
+          <li><a href="services.html">Loan Signing</a></li>
+          <li><a href="services.html">Mobile Notary</a></li>
+          <li><a href="services.html">Real Estate Docs</a></li>
+          <li><a href="services.html">Legal Affidavits</a></li>
+          <li><a href="services.html">Power of Attorney</a></li>
+          <li><a href="care-plans.html">Business Plans</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact Info</h4>
         <div class="footer-contact-item"><i data-lucide="phone"></i> +1 (555) 123-4567</div>
         <div class="footer-contact-item"><i data-lucide="mail"></i> info@notarypro.com</div>
-        <div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Los Angeles, CA</div>
+        <div class="footer-contact-item"><i data-lucide="map-pin"></i> 123 Legal Ave, Suite 100<br>Los Angeles, CA 90001</div>
         <div class="footer-contact-item"><i data-lucide="clock"></i> 24/7 — Always Available</div>
       </div>
     </div>
