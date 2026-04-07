@@ -315,9 +315,10 @@ body {
 @media (max-width: 768px) {
   .hero-ctas {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 12px;
-    max-width: 400px; /* Prevent buttons from being too wide on tablets */
+    max-width: 440px;
+    margin: 0 auto;
   }
   .hero-ctas .btn {
     width: 100%;
@@ -803,16 +804,19 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .testimonials-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-card:nth-child(3) { grid-column: span 2; max-width: 800px; margin: 0 auto; text-align: center; }
   .testimonial-card:nth-child(3) .testimonial-stars, .testimonial-card:nth-child(3) .testimonial-author { justify-content: center; }
+
+  /* Hero Section Reset for Tablet */
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .hero-content { order: 1; display: flex; flex-direction: column; align-items: center; }
+  .hero-image { order: 2; }
+  .hero-ctas { display: flex; flex-direction: row; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 44px; }
+  .hero-ctas .btn { flex: 1; max-width: 220px; min-width: 200px; justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-tags { justify-content: center; }
 }
 @media (max-width: 768px) {
   :root { --header-h: 64px; }
   .nav-links { display: none; }
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .hero-content { order: 1; }
-  .hero-image { order: 2; }
-  .hero-ctas { justify-content: center; }
-  .hero-trust { justify-content: center; }
-  .hero-tags { justify-content: center; }
   .hero-float-card { display: flex; position: static; margin-top: 20px; }
   .hero-float-card.card-bottom, .hero-float-card.card-top { position: static; bottom: auto; left: auto; right: auto; margin: 10px; }
   .hero-image-wrapper { margin-bottom: 20px; }
@@ -843,6 +847,10 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .testimonial-card:nth-child(3) .testimonial-stars, .testimonial-card:nth-child(3) .testimonial-author { justify-content: flex-start; }
   .services-grid { grid-template-columns: 1fr; }
   .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .hero-trust { gap: 12px; }
+  .trust-item .number { font-size: 1.1rem; white-space: nowrap; }
+  .trust-item .label { font-size: 0.65rem; }
+  .trust-divider { height: 28px; }
 }
 
 /* ═══════════════════════════════════════════
