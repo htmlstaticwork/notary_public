@@ -99,7 +99,7 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="container page-hero-inner">
+  <div class="page-hero-inner container">
     <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Services</span></div>
     <h1>Our Notary <span>Services</span></h1>
     <p>Comprehensive notarization solutions for individuals, businesses, law firms, and real estate professionals.</p>
@@ -128,65 +128,66 @@
 </section>
 
 <!-- DETAILED SERVICE CARDS -->
-<section class="section section-alt" id="loan-signing">
+<!-- DETAILED SERVICE IMMERSIVE SECTIONS -->
+<section class="section-immersive" id="loan-signing">
+  <div class="immersive-bg"><img src="images/notary_handshake.png" alt="Loan signing" loading="lazy"></div>
+  <div class="immersive-overlay"></div>
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-badge"><i data-lucide="star"></i> Detailed Services</div>
-      <h2>In-Depth <span>Service Details</span></h2>
-      <p>Everything you need to know about our most popular services.</p>
+    <div class="reveal">
+      <div class="section-badge"><i data-lucide="file-signature"></i> Certified Loan Signing</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">Expert <span>Loan Signing</span> Agent</h2>
+      <p style="max-width:600px;font-size:1.1rem;margin-bottom:30px;">As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time.</p>
+      <div class="service-detail-features" style="margin-bottom:40px;">
+        <div class="s-feature"><i data-lucide="check-circle"></i> Purchase loan signings & Refinance packages</div>
+        <div class="s-feature"><i data-lucide="check-circle"></i> HELOC & home equity loan documents</div>
+        <div class="s-feature"><i data-lucide="check-circle"></i> Reverse mortgages & seller packages</div>
+      </div>
+      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$75</span>
+      </div>
+      <a href="contact.html" class="btn btn-accent btn-lg">Book Loan Signing</a>
     </div>
-    <div class="services-detail-grid">
-      <div class="service-detail-card reveal delay-1">
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="Loan signing" loading="lazy" />
-        <div class="service-detail-content">
-          <h3>Loan Signing Agent Services</h3>
-          <p>As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time to the title company or lender.</p>
-          <div class="service-detail-features">
-            <div class="s-feature"><i data-lucide="check"></i> Purchase loan signings</div>
-            <div class="s-feature"><i data-lucide="check"></i> Refinance packages</div>
-            <div class="s-feature"><i data-lucide="check"></i> HELOC & home equity</div>
-        
-          </div>
-          <div class="service-detail-price">
-            <span class="s-from">From</span><span class="s-price">$75</span><span style="font-size:0.82rem;color:var(--text-muted)">per signing</span>
-          </div>
-          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
-        </div>
+  </div>
+</section>
+
+<section class="section-immersive" id="mobile-notary">
+  <div class="immersive-bg"><img src="images/notary_mobile_agent.png" alt="Mobile notary" loading="lazy"></div>
+  <div class="immersive-overlay"></div>
+  <div class="container" style="text-align: right; display: flex; flex-direction: column; align-items: flex-end;">
+    <div class="reveal" style="max-width:700px;">
+      <div class="section-badge" style="margin-left: auto;"><i data-lucide="map-pin"></i> 24/7 Mobile Service</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">We Come To <span>You</span></h2>
+      <p style="font-size:1.1rem;margin-bottom:30px;">We eliminate the inconvenience of finding a notary. We come directly to your home, office, hospital, or any location within our 50-mile service area.</p>
+      <div class="service-detail-features" style="margin-bottom:40px; align-items: flex-end;">
+        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> 24/7 Availability including weekends & holidays</div>
+        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> Hospital & detention center visits</div>
+        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> Emergency same-day appointments</div>
       </div>
-      <div class="service-detail-card reveal delay-2" id="mobile-notary">
-        <img src="https://i.pinimg.com/736x/df/9d/fb/df9dfb2951cd5417ff8095439133c6f9.jpg" alt="Mobile notary" loading="lazy" />
-        <div class="service-detail-content">
-          <h3>Mobile Notary Services</h3>
-          <p>We eliminate the inconvenience of finding a notary. We come directly to you — wherever you are — ready with all necessary supplies to notarize your documents on the spot.</p>
-          <div class="service-detail-features">
-            <div class="s-feature"><i data-lucide="check"></i> Home, office & hospital visits</div>
-            <div class="s-feature"><i data-lucide="check"></i> Weekend & evening appointments</div>
-            <div class="s-feature"><i data-lucide="check"></i> 50-mile service radius</div>
-            <div class="s-feature"><i data-lucide="check"></i> Same-day availability</div>
-          </div>
-          <div class="service-detail-price">
-            <span class="s-from">From</span><span class="s-price">$50</span><span style="font-size:0.82rem;color:var(--text-muted)">per appointment</span>
-          </div>
-          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
-        </div>
+      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;justify-content: flex-end;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$50</span>
       </div>
-      <div class="service-detail-card reveal delay-3" id="real-estate">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Real estate documents" loading="lazy" />
-        <div class="service-detail-content">
-          <h3>Real Estate Documents</h3>
-          <p>From deeds and title transfers to purchase agreements and closing disclosures, we handle every real estate document with meticulous attention to detail and compliance.</p>
-          <div class="service-detail-features">
-            <div class="s-feature"><i data-lucide="check"></i> Grant & quitclaim deeds</div>
-            <div class="s-feature"><i data-lucide="check"></i> Title transfer documents</div>
-            <div class="s-feature"><i data-lucide="check"></i> Closing disclosures</div>
-            <div class="s-feature"><i data-lucide="check"></i> Purchase agreements</div>
-          </div>
-          <div class="service-detail-price">
-            <span class="s-from">From</span><span class="s-price">$65</span><span style="font-size:0.82rem;color:var(--text-muted)">per document set</span>
-          </div>
-          <a href="contact.html" class="btn btn-primary btn-full">Book This Service</a>
-        </div>
+      <a href="contact.html" class="btn btn-accent btn-lg">Schedule Mobile Notary</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-immersive" id="real-estate">
+  <div class="immersive-bg"><img src="images/notary_documents_office.png" alt="Real estate documents" loading="lazy"></div>
+  <div class="immersive-overlay"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-badge"><i data-lucide="home"></i> Real Estate Expertise</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">Real Estate <span>Document</span> Specialist</h2>
+      <p style="max-width:600px;font-size:1.1rem;margin-bottom:30px;">From deeds and title transfers to purchase agreements and closing disclosures, we handle every document with meticulous attention to detail.</p>
+      <div class="service-detail-features" style="margin-bottom:40px;">
+        <div class="s-feature"><i data-lucide="check-circle"></i> Grant, Quitclaim & Warranty Deeds</div>
+        <div class="s-feature"><i data-lucide="check-circle"></i> Title transfers & Closing disclosures</div>
+        <div class="s-feature"><i data-lucide="check-circle"></i> Property tax & occupancy affidavits</div>
       </div>
+      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$65</span>
+      </div>
+      <a href="contact.html" class="btn btn-accent btn-lg">Order Real Estate Signing</a>
     </div>
   </div>
 </section>

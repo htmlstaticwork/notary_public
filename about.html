@@ -15,30 +15,44 @@
     }
     .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .cert-icon { 
-      width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); 
-      border-radius: var(--radius); display: flex; align-items: center; justify-content: center; 
-      margin: 0 auto 16px; color: white; flex-shrink: 0; 
+      width: 100px; height: 100px; 
+      display: flex; align-items: center; justify-content: center; 
+      margin: 0 auto 16px; flex-shrink: 0; 
     }
-    .cert-icon svg { width: 24px; height: 24px; }
+    .cert-icon img {
+      width: 100%; height: 100%; object-fit: contain;
+    }
     .cert-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
     .cert-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
     
     .value-card { 
-      display: flex; align-items: flex-start; gap: 16px; padding: 24px; 
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); 
-      transition: var(--transition); height: 100%; 
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 32px 24px; gap: 20px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); 
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); height: 100%; 
+      position: relative; overflow: hidden;
     }
-    .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .value-card::after {
+      content: ''; position: absolute; inset: 0; 
+      background: radial-gradient(circle at center, rgba(var(--primary-rgb), 0.05) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .value-card:hover { transform: translateY(-8px); border-color: rgba(var(--primary-rgb), 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+    .value-card:hover::after { opacity: 1; }
+    
     .value-card-icon { 
-      width: 48px; height: 48px; background: rgba(var(--accent-rgb),0.1); 
-      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; 
-      color: var(--accent-dark); flex-shrink: 0; 
+      width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; 
+      flex-shrink: 0; position: relative; z-index: 1;
+      transition: transform 0.5s ease;
     }
-    [data-theme="dark"] .value-card-icon { color: var(--accent-light); }
-    .value-card-icon svg { width: 22px; height: 22px; }
-    .value-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .value-card p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; }
-    .value-card div { flex: 1; }
+    .value-card:hover .value-card-icon { transform: scale(1.1); }
+    
+    .value-card-icon img {
+      width: 100%; height: 100%; object-fit: contain;
+    }
+    .value-card h4 { font-size: 1.15rem; font-weight: 800; margin-bottom: 2px; position: relative; z-index: 1; }
+    .value-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; position: relative; z-index: 1; }
+    .value-card div { width: 100%; }
     
     /* Grid Layouts */
     .about-cert-grid, .about-values-grid { 
@@ -135,8 +149,9 @@
 </header>
 
 <!-- PAGE HERO -->
+<!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="container page-hero-inner">
+  <div class="page-hero-inner container">
     <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>About</span></div>
     <h1>About <span>NotaryPro</span></h1>
     <p>A decade of trusted notary service — certified, professional, and always at your doorstep.</p>
@@ -156,7 +171,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image-wrapper reveal-left">
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" alt="Professional notary" loading="lazy" />
+        <img src="images/notary_mobile_agent.png" alt="Professional notary" loading="lazy" />
         <div class="about-exp-badge"><span class="years">10+</span><span class="years-label">Years of Trust</span></div>
       </div>
       <div class="about-content reveal-right">
@@ -183,12 +198,12 @@
       <p>Fully credentialed and continuously trained to serve you with the highest professional standards.</p>
     </div>
     <div class="about-cert-grid">
-      <div class="cert-card reveal delay-1"><div class="cert-icon"><i data-lucide="award"></i></div><h3>NNA Certified</h3><p>National Notary Association certified professional</p></div>
-      <div class="cert-card reveal delay-2"><div class="cert-icon"><i data-lucide="shield-check"></i></div><h3>Background Checked</h3><p>Clear NNA background screening — verified identity</p></div>
-      <div class="cert-card reveal delay-3"><div class="cert-icon"><i data-lucide="scroll"></i></div><h3>State Commissioned</h3><p>California Secretary of State commissioned notary</p></div>
-      <div class="cert-card reveal delay-4"><div class="cert-icon"><i data-lucide="briefcase"></i></div><h3>Loan Signing Agent</h3><p>Certified LSA trained for all lender packages</p></div>
-      <div class="cert-card reveal delay-1"><div class="cert-icon"><i data-lucide="lock"></i></div><h3>E&O Insured</h3><p>Errors & Omissions insurance coverage included</p></div>
-      <div class="cert-card reveal delay-2"><div class="cert-icon"><i data-lucide="monitor"></i></div><h3>RON Certified</h3><p>Remote Online Notarization — state approved</p></div>
+      <div class="cert-card reveal delay-1"><div class="cert-icon"><img src="images/cert_nna.png" alt="NNA Certified" /></div><h3>NNA Certified</h3><p>National Notary Association certified professional</p></div>
+      <div class="cert-card reveal delay-2"><div class="cert-icon"><img src="images/cert_background.png" alt="Background Checked" /></div><h3>Background Checked</h3><p>Clear NNA background screening — verified identity</p></div>
+      <div class="cert-card reveal delay-3"><div class="cert-icon"><img src="images/cert_state.png" alt="State Commissioned" /></div><h3>State Commissioned</h3><p>California Secretary of State commissioned notary</p></div>
+      <div class="cert-card reveal delay-4"><div class="cert-icon"><img src="images/cert_loan.png" alt="Loan Signing Agent" /></div><h3>Loan Signing Agent</h3><p>Certified LSA trained for all lender packages</p></div>
+      <div class="cert-card reveal delay-1"><div class="cert-icon"><img src="images/cert_insured.png" alt="E&O Insured" /></div><h3>E&O Insured</h3><p>Errors & Omissions insurance coverage included</p></div>
+      <div class="cert-card reveal delay-2"><div class="cert-icon"><img src="images/cert_ron.png" alt="RON Certified" /></div><h3>RON Certified</h3><p>Remote Online Notarization — state approved</p></div>
     </div>
   </div>
 </section>
@@ -202,12 +217,12 @@
       <p>Our core values guide every appointment, every document, and every client interaction.</p>
     </div>
     <div class="about-values-grid">
-      <div class="value-card reveal delay-1"><div class="value-card-icon"><i data-lucide="target"></i></div><div><h4>Our Mission</h4><p>To make professional notary services universally accessible — fast, mobile, and available 24/7 for every person and business that needs it.</p></div></div>
-      <div class="value-card reveal delay-2"><div class="value-card-icon"><i data-lucide="eye"></i></div><div><h4>Our Vision</h4><p>To be the most trusted mobile notary service in California, known for our reliability, professionalism, and client-first approach.</p></div></div>
-      <div class="value-card reveal delay-3"><div class="value-card-icon"><i data-lucide="handshake"></i></div><div><h4>Integrity</h4><p>We handle every document and every client with complete honesty, transparency, and confidentiality.</p></div></div>
-      <div class="value-card reveal delay-4"><div class="value-card-icon"><i data-lucide="zap"></i></div><div><h4>Excellence</h4><p>We hold ourselves to the highest standards in accuracy, presentation, and professional conduct.</p></div></div>
-      <div class="value-card reveal delay-1"><div class="value-card-icon"><i data-lucide="users"></i></div><div><h4>Client First</h4><p>Your convenience is our priority. We adapt to your schedule, location, and unique document needs.</p></div></div>
-      <div class="value-card reveal delay-2"><div class="value-card-icon"><i data-lucide="refresh-cw"></i></div><div><h4>Continuous Learning</h4><p>We stay current with all notary laws, regulations, and best practices to serve you better.</p></div></div>
+      <div class="value-card reveal delay-1"><div class="value-card-icon"><img src="images/val_mission.png" alt="Mission" /></div><div><h4>Our Mission</h4><p>To make professional notary services universally accessible — fast, mobile, and available 24/7 for every person and business that needs it.</p></div></div>
+      <div class="value-card reveal delay-2"><div class="value-card-icon"><img src="images/val_vision.png" alt="Vision" /></div><div><h4>Our Vision</h4><p>To be the most trusted mobile notary service in California, known for our reliability, professionalism, and client-first approach.</p></div></div>
+      <div class="value-card reveal delay-3"><div class="value-card-icon"><img src="images/val_integrity.png" alt="Integrity" /></div><div><h4>Integrity</h4><p>We handle every document and every client with complete honesty, transparency, and confidentiality.</p></div></div>
+      <div class="value-card reveal delay-4"><div class="value-card-icon"><img src="images/val_excellence.png" alt="Excellence" /></div><div><h4>Excellence</h4><p>We hold ourselves to the highest standards in accuracy, presentation, and professional conduct.</p></div></div>
+      <div class="value-card reveal delay-1"><div class="value-card-icon"><img src="images/val_client.png" alt="Client First" /></div><div><h4>Client First</h4><p>Your convenience is our priority. We adapt to your schedule, location, and unique document needs.</p></div></div>
+      <div class="value-card reveal delay-2"><div class="value-card-icon"><img src="images/val_learning.png" alt="Learning" /></div><div><h4>Continuous Learning</h4><p>We stay current with all notary laws, regulations, and best practices to serve you better.</p></div></div>
     </div>
   </div>
 </section>
@@ -229,7 +244,7 @@
         </div>
       </div>
       <div class="reveal-right">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Professional office" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy" />
+        <img src="images/notary_documents_office.png" alt="Professional office" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy" />
       </div>
     </div>
   </div>
