@@ -81,7 +81,7 @@
   height: 15px;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .sidebar-toggle-btn {
     display: none;
   }
@@ -336,7 +336,7 @@
   height: 17px;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   #sidebar-menu-toggle {
     display: none;
   }
@@ -996,7 +996,7 @@
     grid-template-columns: 1fr;
   }
 
-  #rtl-toggle {
+  #rtl-toggle, #theme-toggle {
     display: none;
   }
 
