@@ -6,66 +6,7 @@
   <meta name="description" content="Explore our full range of notary services including loan signing, mobile notary, real estate documents, legal affidavits, and more." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/><path d='M7 21h10'/><path d='M12 3v18'/><path d='M3 7h2c2 0 4-1.34 4-4V3h8v.006A6.42 6.42 0 0 1 18.5 7H21'/></svg>" type="image/svg+xml">
-  <style>
-    .services-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; }
-    .service-detail-card {
-      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
-      overflow:hidden; transition:var(--transition);
-      display: flex; flex-direction: column; height: 100%;
-    }
-    .service-detail-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
-    .service-detail-card img { width:100%; height:200px; object-fit:cover; display:block; flex-shrink: 0; }
-    
-    /* Responsive for service detail cards */
-    @media (max-width: 1024px) {
-      .services-detail-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-    }
-    @media (max-width: 768px) {
-      .services-detail-grid {
-        grid-template-columns: 1fr;
-      }
-      .service-detail-card .btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-    @media (max-width: 480px) {
-      .services-detail-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .service-detail-card .btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-    .service-detail-content { padding:24px; display: flex; flex-direction: column; flex-grow: 1; }
-    .service-detail-content h3 { font-size:1.1rem; font-weight:800; margin-bottom:8px; }
-    .service-detail-content p { font-size:0.86rem; color:var(--text-secondary); line-height:1.75; margin-bottom:16px; }
-    .service-detail-features { display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
-    .s-feature { display:flex; align-items:center; gap:9px; font-size:0.83rem; color:var(--text-secondary); }
-    .s-feature svg { width:14px; height:14px; color:var(--primary); flex-shrink:0; }
-    [data-theme="dark"] .s-feature svg { color:var(--accent-light); }
-    .service-detail-price { display:flex; align-items:baseline; gap:6px; margin-bottom:16px; padding-top:14px; border-top:1px solid var(--border); }
-    .s-price { font-size:1.6rem; font-weight:900; color:var(--primary); }
-    [data-theme="dark"] .s-price { color:var(--accent-light); }
-    .s-from { font-size:0.78rem; color:var(--text-muted); }
 
-    /* Pricing Table */
-    .pricing-note { text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:20px; }
-    .pricing-table { width:100%; border-collapse:collapse; background:var(--bg-card); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
-    .pricing-table th { background:var(--primary); color:white; padding:14px 20px; text-align:left; font-size:0.87rem; font-weight:700; }
-    [dir="rtl"] .pricing-table th { text-align:right; }
-    .pricing-table td { padding:13px 20px; font-size:0.85rem; border-bottom:1px solid var(--border); color:var(--text-secondary); }
-    .pricing-table tr:last-child td { border-bottom:none; }
-    .pricing-table tr:hover td { background:var(--bg-secondary); }
-    .pricing-table td:first-child { font-weight:600; color:var(--text); }
-    .price-cell { font-weight:700; color:var(--primary); }
-    [data-theme="dark"] .price-cell { color:var(--accent-light); }
-  </style>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script src="main.js" defer></script>
 </head>
@@ -80,7 +21,7 @@
   </ul>
   <div class="nav-actions">
     <div class="nav-ctas"><a href="login.html" class="btn btn-secondary btn-sm">Login</a><a href="register.html" class="btn btn-primary btn-sm">Sign Up</a></div>
-    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle"><i data-lucide="languages"></i></button></div>
+    <div class="nav-toggles"><button class="toggle-btn" id="theme-toggle"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle">RTL</button></div>
   </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
@@ -91,22 +32,20 @@
     <li><a href="services.html"><i data-lucide="briefcase"></i> Services</a></li><li><a href="about.html"><i data-lucide="user"></i> About</a></li>
     <li><a href="care-plans.html"><i data-lucide="shield-check"></i> Care Plans</a></li><li><a href="contact.html"><i data-lucide="phone"></i> Contact</a></li><li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
   </ul>
-  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m"><i data-lucide="languages"></i></button></div>
+  <div class="drawer-toggles"><button class="toggle-btn" id="theme-toggle-m"><i data-lucide="moon"></i></button><button class="toggle-btn" id="rtl-toggle-m">RTL</button></div>
   <div class="drawer-cta"><a href="register.html" class="btn btn-primary btn-full">Sign Up</a><a href="login.html" class="btn btn-secondary btn-full">Login</a></div>
 </div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
 </header>
 
 <!-- PAGE HERO -->
-<div class="page-hero">
+<section class="page-hero">
   <div class="page-hero-inner container">
-    <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Services</span></div>
-    <h1>Our Notary <span>Services</span></h1>
-    <p>Comprehensive notarization solutions for individuals, businesses, law firms, and real estate professionals.</p>
+    <div class="breadcrumb animate-fadeup"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Services</span></div>
+    <h1 class="animate-fadeup" style="animation-delay:0.1s">Our Notary <span>Services</span></h1>
+    <p class="animate-fadeup" style="animation-delay:0.2s">Comprehensive notarization solutions for individuals, businesses, law firms, and real estate professionals.</p>
   </div>
-</div>
-
-<!-- ALL SERVICES OVERVIEW GRID -->
+</section><!-- ALL SERVICES OVERVIEW GRID -->
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
@@ -115,58 +54,59 @@
       <p>Every notary service you need, delivered professionally at your location.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="file-signature"></i></div><h3>Loan Signing</h3><p>Certified LSA for all real estate loan document packages including purchase, refinance, and HELOC signings.</p><a href="#loan-signing" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="car"></i></div><h3>Mobile Notary</h3><p>We come to your home, office, hospital, or any location within our 50-mile service area.</p><a href="#mobile-notary" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="home"></i></div><h3>Real Estate Docs</h3><p>Deeds, title transfers, purchase agreements, and all real estate transaction documents.</p><a href="#real-estate" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="scroll"></i></div><h3>Legal Affidavits</h3><p>Sworn statements, power of attorney, wills, trusts, and all notarized legal affidavits.</p><a href="#affidavits" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="pen-tool"></i></div><h3>Power of Attorney</h3><p>General, limited, durable, and medical POA documents notarized quickly and accurately.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="heart"></i></div><h3>Healthcare Directives</h3><p>Living wills, advance directives, and healthcare proxy documents notarized with care.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="globe"></i></div><h3>Immigration Docs</h3><p>Certified translations and notarization of immigration-related documents and affidavits.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
-      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="building"></i></div><h3>Corporate Documents</h3><p>Business contracts, corporate resolutions, articles of incorporation, and more.</p><a href="#" class="service-link">Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="file-signature"></i></div><h3>Loan Signing</h3><p>Certified LSA for all real estate loan document packages including purchase, refinance, and HELOC signings.</p><a href="#loan-signing" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="car"></i></div><h3>Mobile Notary</h3><p>We come to your home, office, hospital, or any location within our 50-mile service area.</p><a href="#mobile-notary" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="home"></i></div><h3>Real Estate Docs</h3><p>Deeds, title transfers, purchase agreements, and all real estate transaction documents.</p><a href="#real-estate" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="scroll"></i></div><h3>Legal Affidavits</h3><p>Sworn statements, power of attorney, wills, trusts, and all notarized legal affidavits.</p><a href="#affidavits" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-1"><div class="service-icon"><i data-lucide="pen-tool"></i></div><h3>Power of Attorney</h3><p>General, limited, durable, and medical POA documents notarized quickly and accurately.</p><a href="#affidavits" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-2"><div class="service-icon"><i data-lucide="heart"></i></div><h3>Healthcare Directives</h3><p>Living wills, advance directives, and healthcare proxy documents notarized with care.</p><a href="#affidavits" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-3"><div class="service-icon"><i data-lucide="globe"></i></div><h3>Immigration Docs</h3><p>Certified translations and notarization of immigration-related documents and affidavits.</p><a href="#contact" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
+      <div class="service-card reveal delay-4"><div class="service-icon"><i data-lucide="building"></i></div><h3>Corporate Documents</h3><p>Business contracts, corporate resolutions, articles of incorporation, and more.</p><a href="#contact" class="service-link">View Details <i data-lucide="arrow-right"></i></a></div>
     </div>
   </div>
 </section>
 
-<!-- DETAILED SERVICE CARDS -->
 <!-- DETAILED SERVICE IMMERSIVE SECTIONS -->
 <section class="section-immersive" id="loan-signing">
   <div class="immersive-bg"><img src="images/notary_handshake.png" alt="Loan signing" loading="lazy"></div>
   <div class="immersive-overlay"></div>
   <div class="container">
-    <div class="reveal">
+    <div class="immersive-card reveal">
       <div class="section-badge"><i data-lucide="file-signature"></i> Certified Loan Signing</div>
-      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">Expert <span>Loan Signing</span> Agent</h2>
-      <p style="max-width:600px;font-size:1.1rem;margin-bottom:30px;">As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time.</p>
-      <div class="service-detail-features" style="margin-bottom:40px;">
-        <div class="s-feature"><i data-lucide="check-circle"></i> Purchase loan signings & Refinance packages</div>
-        <div class="s-feature"><i data-lucide="check-circle"></i> HELOC & home equity loan documents</div>
-        <div class="s-feature"><i data-lucide="check-circle"></i> Reverse mortgages & seller packages</div>
+      <h2 style="font-size:2.5rem;margin-bottom:15px;font-weight:900;">Loan <span>Signing</span> Agent</h2>
+      <p style="margin-bottom:24px;line-height:1.7;">As a certified Loan Signing Agent, we handle all types of mortgage and real estate loan packages. Every document is reviewed, correctly signed, and returned on time with professional care.</p>
+      <div class="service-detail-features" style="display:flex; flex-direction:column; gap:12px; margin-bottom:30px;">
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Purchase loan signings & Refinance packages</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> HELOC & home equity loan documents</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Reverse mortgages & seller packages</div>
       </div>
-      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;">
-        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$75</span>
+      <div class="service-detail-price" style="display:flex; align-items:baseline; gap:8px; margin-bottom:30px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6); font-size:0.8rem;">Starting at</span>
+        <span class="s-price" style="font-size:2.4rem; font-weight:900; color:var(--accent-light);">$75</span>
       </div>
-      <a href="contact.html" class="btn btn-accent btn-lg">Book Loan Signing</a>
+      <a href="contact.html" class="btn btn-accent btn-lg btn-full">Book Loan Signing</a>
     </div>
   </div>
 </section>
 
 <section class="section-immersive" id="mobile-notary">
   <div class="immersive-bg"><img src="images/notary_mobile_agent.png" alt="Mobile notary" loading="lazy"></div>
-  <div class="immersive-overlay"></div>
-  <div class="container" style="text-align: right; display: flex; flex-direction: column; align-items: flex-end;">
-    <div class="reveal" style="max-width:700px;">
-      <div class="section-badge" style="margin-left: auto;"><i data-lucide="map-pin"></i> 24/7 Mobile Service</div>
-      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">We Come To <span>You</span></h2>
-      <p style="font-size:1.1rem;margin-bottom:30px;">We eliminate the inconvenience of finding a notary. We come directly to your home, office, hospital, or any location within our 50-mile service area.</p>
-      <div class="service-detail-features" style="margin-bottom:40px; align-items: flex-end;">
-        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> 24/7 Availability including weekends & holidays</div>
-        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> Hospital & detention center visits</div>
-        <div class="s-feature" style="flex-direction: row-reverse;"><i data-lucide="check-circle"></i> Emergency same-day appointments</div>
+  <div class="immersive-overlay" style="background: linear-gradient(to left, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 50%, transparent 100%);"></div>
+  <div class="container" style="display: flex; justify-content: flex-end;">
+    <div class="immersive-card reveal" style="text-align: left;">
+      <div class="section-badge"><i data-lucide="map-pin"></i> 24/7 Mobile Service</div>
+      <h2 style="font-size:2.5rem;margin-bottom:15px;font-weight:900;">We Come To <span>You</span></h2>
+      <p style="margin-bottom:24px;line-height:1.7;">We eliminate the inconvenience of finding a notary. We come directly to your home, office, hospital, or any location within our 50-mile service area, 24/7.</p>
+      <div class="service-detail-features" style="display:flex; flex-direction:column; gap:12px; margin-bottom:30px;">
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> 24/7 Availability including weekends & holidays</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Hospital & detention center visits</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Emergency same-day appointments</div>
       </div>
-      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;justify-content: flex-end;">
-        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$50</span>
+      <div class="service-detail-price" style="display:flex; align-items:baseline; gap:8px; margin-bottom:30px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6); font-size:0.8rem;">Starting at</span>
+        <span class="s-price" style="font-size:2.4rem; font-weight:900; color:var(--accent-light);">$50</span>
       </div>
-      <a href="contact.html" class="btn btn-accent btn-lg">Schedule Mobile Notary</a>
+      <a href="contact.html" class="btn btn-accent btn-lg btn-full">Schedule Appointment</a>
     </div>
   </div>
 </section>
@@ -175,19 +115,20 @@
   <div class="immersive-bg"><img src="images/notary_documents_office.png" alt="Real estate documents" loading="lazy"></div>
   <div class="immersive-overlay"></div>
   <div class="container">
-    <div class="reveal">
+    <div class="immersive-card reveal">
       <div class="section-badge"><i data-lucide="home"></i> Real Estate Expertise</div>
-      <h2 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:20px;">Real Estate <span>Document</span> Specialist</h2>
-      <p style="max-width:600px;font-size:1.1rem;margin-bottom:30px;">From deeds and title transfers to purchase agreements and closing disclosures, we handle every document with meticulous attention to detail.</p>
-      <div class="service-detail-features" style="margin-bottom:40px;">
-        <div class="s-feature"><i data-lucide="check-circle"></i> Grant, Quitclaim & Warranty Deeds</div>
-        <div class="s-feature"><i data-lucide="check-circle"></i> Title transfers & Closing disclosures</div>
-        <div class="s-feature"><i data-lucide="check-circle"></i> Property tax & occupancy affidavits</div>
+      <h2 style="font-size:2.5rem;margin-bottom:15px;font-weight:900;">Real Estate <span>Docs</span></h2>
+      <p style="margin-bottom:24px;line-height:1.7;">From deeds and title transfers to purchase agreements and closing disclosures, we handle every real estate document with meticulous attention to every detail.</p>
+      <div class="service-detail-features" style="display:flex; flex-direction:column; gap:12px; margin-bottom:30px;">
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Grant, Quitclaim & Warranty Deeds</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Title transfers & Closing disclosures</div>
+        <div class="s-feature" style="display:flex; align-items:center; gap:10px; font-size:0.9rem;"><i data-lucide="check-circle" style="color:var(--accent-light); width:18px; height:18px;"></i> Property tax & occupancy affidavits</div>
       </div>
-      <div class="service-detail-price" style="border:none;padding:0;margin-bottom:30px;">
-        <span class="s-from" style="color:rgba(255,255,255,0.6)">Starting at</span><span class="s-price" style="font-size:2.5rem;color:var(--accent-light)">$65</span>
+      <div class="service-detail-price" style="display:flex; align-items:baseline; gap:8px; margin-bottom:30px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+        <span class="s-from" style="color:rgba(255,255,255,0.6); font-size:0.8rem;">Starting at</span>
+        <span class="s-price" style="font-size:2.4rem; font-weight:900; color:var(--accent-light);">$65</span>
       </div>
-      <a href="contact.html" class="btn btn-accent btn-lg">Order Real Estate Signing</a>
+      <a href="contact.html" class="btn btn-accent btn-lg btn-full">Order Real Estate Signing</a>
     </div>
   </div>
 </section>
@@ -198,25 +139,27 @@
     <div class="section-header reveal">
       <div class="section-badge"><i data-lucide="dollar-sign"></i> Pricing</div>
       <h2>Transparent <span>Service Rates</span></h2>
-      <p>No hidden fees. Clear, competitive pricing for all notary services.</p>
+      <p>No hidden fees. Clear, competitive pricing for all notary services within our service area.</p>
     </div>
-    <div class="reveal" style="overflow-x:auto;">
-      <table class="pricing-table">
-        <thead>
-          <tr><th>Service</th><th>Base Rate</th><th>Travel Fee</th><th>Estimated Total</th><th>Availability</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Loan Signing (Standard)</td><td class="price-cell">$75</td><td>Included</td><td class="price-cell">$75</td><td>24/7</td></tr>
-          <tr><td>Loan Signing (Complex)</td><td class="price-cell">$125</td><td>Included</td><td class="price-cell">$125</td><td>24/7</td></tr>
-          <tr><td>Mobile Notary (Local)</td><td class="price-cell">$50</td><td>Included</td><td class="price-cell">$50</td><td>24/7</td></tr>
-          <tr><td>Mobile Notary (Extended)</td><td class="price-cell">$50</td><td>$0.65/mi</td><td class="price-cell">Varies</td><td>24/7</td></tr>
-          <tr><td>Real Estate Documents</td><td class="price-cell">$65</td><td>Included</td><td class="price-cell">$65</td><td>24/7</td></tr>
-          <tr><td>Power of Attorney</td><td class="price-cell">$40</td><td>Included</td><td class="price-cell">$40</td><td>24/7</td></tr>
-          <tr><td>Legal Affidavit</td><td class="price-cell">$35</td><td>Included</td><td class="price-cell">$35</td><td>24/7</td></tr>
-          <tr><td>Emergency / After-Hours</td><td class="price-cell">+$25</td><td>Included</td><td class="price-cell">Base + $25</td><td>Emergency</td></tr>
-        </tbody>
-      </table>
-      <p class="pricing-note"><i data-lucide="info"></i> State notary fees per signature may apply. Contact us for exact quotes on complex documents.</p>
+    <div class="reveal">
+      <div class="pricing-table-wrapper">
+        <table class="pricing-table">
+          <thead>
+            <tr><th>Service</th><th>Base Rate</th><th>Travel Fee</th><th>Estimated Total</th><th>Availability</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Loan Signing (Standard)</td><td class="price-cell">$75</td><td>Included</td><td class="price-cell">$75</td><td>24/7</td></tr>
+            <tr><td>Loan Signing (Complex)</td><td class="price-cell">$125</td><td>Included</td><td class="price-cell">$125</td><td>24/7</td></tr>
+            <tr><td>Mobile Notary (Local)</td><td class="price-cell">$50</td><td>Included</td><td class="price-cell">$50</td><td>24/7</td></tr>
+            <tr><td>Mobile Notary (Extended)</td><td class="price-cell">$50</td><td>$0.65/mi</td><td class="price-cell">Varies</td><td>24/7</td></tr>
+            <tr><td>Real Estate Documents</td><td class="price-cell">$65</td><td>Included</td><td class="price-cell">$65</td><td>24/7</td></tr>
+            <tr><td>Power of Attorney</td><td class="price-cell">$40</td><td>Included</td><td class="price-cell">$40</td><td>24/7</td></tr>
+            <tr><td>Legal Affidavit</td><td class="price-cell">$35</td><td>Included</td><td class="price-cell">$35</td><td>24/7</td></tr>
+            <tr><td>Emergency / After-Hours</td><td class="price-cell">+$25</td><td>Included</td><td class="price-cell">Base + $25</td><td>Emergency</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pricing-note"><i data-lucide="info"></i> State notary fees per signature may apply. Contact us for exact quotes on complex document packages.</p>
     </div>
   </div>
 </section>

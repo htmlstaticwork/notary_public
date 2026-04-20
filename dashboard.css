@@ -318,18 +318,11 @@
 }
 
 .d-icon-btn {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: var(--transition-fast);
-  position: relative;
+  width: auto; min-width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm); background: var(--bg-secondary);
+  border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;
+  transition: var(--transition-fast); position: relative; padding: 0 8px;
+  font-size: 0.72rem; font-weight: 700;
 }
 
 .d-icon-btn:hover {
